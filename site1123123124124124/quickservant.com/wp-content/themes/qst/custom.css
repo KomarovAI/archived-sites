@@ -1,0 +1,305 @@
+/* THESE RULE ARE BEING IMPLEMENTED TO COMPLY WITH THE NEW H1 PLACEMENT STRATEGY */
+
+.custom__title__container {
+	padding-bottom: 20px;
+}
+.custom__title__container h1 {
+	color: #2f588a;
+	margin-top: 30px;
+}
+.custom__featured-image__margin-top {
+	margin-top: -10px!important;
+}
+
+.custom__blog-page-header__margin-top {
+	margin-top: 10px;
+}
+
+@media screen and (max-width: 992px) {
+	.page__featured-image{
+		margin-top: 20px!important;
+	}
+	.custom__title__container {
+		padding-bottom: 0!important;
+	}
+}
+
+/*********************************** CUSTOM STYLES (PAUL) ************************************/
+/*============================================================================================
+Manufactures We Service Page Styles
+==========================================*/
+.mfg_headers {
+  width: 40%;
+  background-color: #ecf0f4;
+  color: #2f588a;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid #dadbdb;
+  margin-left: 15px; }
+
+.mfg_logos {
+  margin-top: 5px;
+  margin-bottom: 5px; }
+
+  /*============================================================================================
+  Carrer Page Accordian Styles
+  ==========================================*/
+
+  h3.accordian-padding {
+    padding-bottom: 15px;
+  }
+
+@media screen and (max-width: 768px) {
+  .mfg_headers {
+    width: 100%; } }
+
+  /*============================================================================================
+  Application Form
+  ==========================================*/
+
+  input[type="tel"] {
+    color: #666;
+    border: 1px solid #ccc;
+    box-shadow: 1px 2px 1px #dadbdb;
+    margin-bottom: 30px;
+    display: block;
+    height: 67px;
+    width: 100%;
+    padding: 0 30px;
+  }
+body .gform_wrapper input[type="text"],
+body .gform_wrapper input[type="email"], 
+body .gform_wrapper input[type="url"], 
+body .gform_wrapper input[type="password"], 
+body .gform_wrapper input[type="search"], 
+body .gform_wrapper.gform_wrapper.gf_browser_gecko select, 
+body .gform_wrapper.gform_wrapper.gf_browser_chrome select{
+	height:40px;
+	margin-bottom:0;
+}
+body .gform_wrapper.gform_wrapper ul li.gfield.extra-space {
+	margin-bottom:5px;
+}
+body .gform_wrapper  label {
+	margin-bottom:0;
+}
+body .gform_wrapper.gform_wrapper .field_sublabel_above .ginput_complex.ginput_container label, 
+body .gform_wrapper.gform_wrapper .field_sublabel_above div[class*="gfield_time_"].ginput_container label {
+	font-weight:600;
+}
+
+  /*********************************** CUSTOM STYLES (AE) ************************************/
+/*============================================================================================
+Home Banner Form
+==========================================*/
+
+#gform_wrapper_1, .home__banner .banner__box div, .banner__box--residential {
+height: auto !important;
+padding: 5px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+.home-banner-form {
+font-size: 0.8em;
+padding: 10px !important;
+}
+.home-banner-form label {
+margin-bottom: 0px;
+}
+.home-banner-form .gform_wrapper .gform_heading {
+	margin-bottom: 0px;
+}
+.home-banner-form .gform_wrapper .gform_heading h3 {
+font-size: 1.5em !important;
+	margin: 0px;
+}
+.home-banner-form .quote-raw {
+	text-align: center;
+}
+.home-banner-form .ginput_container {
+height: 10px !important;
+}
+.home-banner-form .ginput_container input, .home-banner-form .ginput_container textarea {
+height: 20px;
+box-shadow: none;
+border: 0px;
+margin-bottom: 0px;
+}
+.home-banner-form .ginput_container {
+	padding: 0px !important;
+}
+.home-banner-form .gform_wrapper ul.gfield_radio {
+	margin: 0px;
+}
+.home-banner-form .gform_wrapper ul li.field_description_below div.ginput_container_radio {
+	margin-top: 0px;
+}
+.home-banner-form #field_1_5 {
+	margin-top: 7px;
+}
+.home-banner-form .ginput_container_select {
+color: black !important;
+}
+.home-banner-form .gfield_required {
+color: white !important;
+}
+#gform_submit_button_1 {
+border: 2px solid white;
+border-radius: 8px;
+line-height: 1em;
+padding: 0.5em 1.2em;
+text-align: center;
+background-color: transparent;
+box-sizing: border-box;
+font-weight: 600;
+font-size: 22px;
+margin-bottom: 0px;
+}
+#gform_submit_button_1:hover {
+background-color: white;
+color: #2f588a;
+}
+.home-banner-form .gfield_error {
+background-color: transparent !important;
+border: 0px !important;
+margin: 0px !important;
+}
+.home-banner-form .gfield_error label{
+color: white !important;
+}
+.home-banner-form .gfield_error .validation_message, .home-banner-form .validation_error {
+color: #48fff8 !important;
+border-color: #48fff8 !important;
+}
+.gform_ajax_spinner {
+width: 44px !important;
+height: 33px !important;
+}
+
+/* Force the confirmation message open and prevent page collapse, then center it */
+.home-banner-form .gform_confirmation_wrapper {
+display: flex;
+justify-content: center;
+flex-direction: column;
+min-height: 500px;
+}
+@media screen and (max-width: 991px) {
+  .home-banner-form .gform_confirmation_wrapper {
+    min-height: 50px;
+  }
+}
+
+
+/*============================================================================================
+PPC PAGE
+==========================================*/
+.page-template-content-ppc .header__navigation {
+	display:none;
+}
+.page-template-content-ppc .header {
+	padding-top:25px;
+	padding-bottom:25px;
+}
+.ppc-banner {
+	min-height:400px;
+	margin-bottom:50px;
+}
+.ppc-wrap {
+	display:flex;
+	align-items:flex-start;
+}
+.ppc-wrap .main-content {
+	width:66.66667%;
+	padding:0 15px;
+	margin-left:8.33333%;
+}
+.ppc-title {
+	margin-top:0;
+	color:#2f588a;
+}
+.ppc-wrap .sidebar {
+	width:25%;
+	padding-top:0;
+}
+.ppc-wrap .sidebar .sidebar__widget:first-child {
+	padding-top:0;
+}
+.sidebar-menu .gform_wrapper {
+	background-color:#FD4F00;
+	padding:15px !important;
+	color:#fff;
+	font-size:14px;
+}
+.sidebar-menu ul.gform_fields {
+	border:0;
+}
+.ppc-wrap .sidebar .sidebar-menu ul {
+	border:0;
+}
+.sidebar-menu .gform_wrapper .gfield_required {
+	color:#fff;
+}
+.sidebar-menu .gform_wrapper input[type="text"], 
+.sidebar-menu .gform_wrapper input[type="email"], 
+.sidebar-menu .gform_wrapper input[type="url"], 
+.sidebar-menu .gform_wrapper input[type="password"], 
+.sidebar-menu .gform_wrapper input[type="search"] {
+	height:35px;
+	margin-bottom:5px;
+	box-shadow:none;
+}
+.sidebar-menu .gform_wrapper .gform_footer input.button {
+	border: 2px solid white;
+	border-radius: 8px;
+	line-height: 1em;
+	padding: 0.5em 1.2em;
+	text-align: center;
+	background-color: transparent;
+	box-sizing: border-box;
+	font-weight: 600;
+	font-size: 22px;
+	margin-bottom: 0px;
+}
+.sidebar-menu .gform_wrapper .gform_footer input.button:hover,
+.sidebar-menu .gform_wrapper .gform_footer input.button:focus {
+	background-color: white;
+	color: #2f588a;
+}
+footer .row .footer-ppc {
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	width:100%;
+	font-size:12px;
+}
+.page-template-content-ppc footer {
+	padding:25px 30px;
+}
+@media (max-width:991px) {
+	.ppc-wrap {
+		flex-wrap:wrap;
+	}
+	.ppc-wrap .main-content {
+		width:100%;
+		margin-left:0;
+		order:1;
+	}
+	.ppc-wrap .sidebar {
+		width:100%;
+		max-width:500px;
+		margin:0 auto;
+		order:2;
+	}
+}
+@media (max-width:680px) {
+	footer .row .footer-ppc {
+		display:block;
+	}
+	footer .row .footer-ppc > div {
+		margin-bottom:10px;
+	}
+	.ppc-banner {
+		min-height:200px;
+	}
+}

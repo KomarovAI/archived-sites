@@ -1,0 +1,400 @@
+id: full-site-crawler
+namespace: production
+description: "AI-ready website archiver v3.4: MTU 1500 fix, timeout 60s, exponential retry, antibot bypass, 9+ component types, full JSONB"
+
+pluginDefaults:
+  - type: io.kestra.plugin.scripts.runner.docker.Docker
+    values:
+      networkMode: kestra-net
+
+inputs:
+  - id: siteUrl
+    type: STRING
+    defaults: https://quickservant.com/commercial/commercial-restaurant-repair/
+  - id: siteName
+    type: STRING
+    defaults: site1
+  - id: maxPages
+    type: INT
+    defaults: 20
+  - id: baseDelaySeconds
+    type: FLOAT
+    defaults: 8.0
+  - id: respectRobotsTxt
+    type: BOOL
+    defaults: true
+  - id: downloadAssets
+    type: BOOL
+    defaults: true
+  - id: forceCrawl
+    type: BOOL
+    defaults: false
+
+variables:
+  browserUserAgents:
+    - "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+    - "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.1 Safari/605.1.15"
+    - "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+    - "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0"
+
+tasks:
+  - id: check_robots
+    type: io.kestra.plugin.scripts.python.Script
+    outputFiles:
+      - "*.json"
+    timeout: PT30S
+    retry:
+      type: exponential
+      interval: PT3S
+      maxAttempts: 5
+      maxInterval: PT30S
+    script: |
+      import json
+      from urllib.parse import urlparse
+      from urllib.robotparser import RobotFileParser
+      print("\n## ROBOTS CHECK")
+      b=lambda v:str(v).lower()in('true','1')
+      site='{{inputs.siteUrl}}'
+      force=b('{{inputs.forceCrawl}}')
+      respect=b('{{inputs.respectRobotsTxt}}')
+      rurl=f"{urlparse(site).scheme}://{urlparse(site).netloc}/robots.txt"
+      print(f"{site} | {'FORCE' if force else 'IGNORE' if not respect else 'RESPECT'}")
+      r={"robotsUrl":rurl,"isAllowed":True,"crawlDelay":{{inputs.baseDelaySeconds}},"respectRobotsTxt":respect,"sitemaps":[],"error":None,"warning":None}
+      if force:r["warning"]="bypassed";print(f"WARN: {r['warning']}")
+      elif not respect:r["warning"]="ignored";print(f"WARN: {r['warning']}")
+      else:
+          try:
+              rp=RobotFileParser();rp.set_url(rurl);rp.read()
+              r["isAllowed"]=rp.can_fetch("*",site)
+              cd=rp.crawl_delay("*")
+              if cd:r["crawlDelay"]=max(float(cd),{{inputs.baseDelaySeconds}})
+              if rp.site_maps():r["sitemaps"]=list(rp.site_maps())
+              if not r["isAllowed"]:r["warning"]="disallowed";r["crawlDelay"]=max({{inputs.baseDelaySeconds}},10.0);print(f"BLOCKED")
+              else:print(f"OK | {r['crawlDelay']}s | {len(r.get('sitemaps',[]))} sitemaps")
+          except Exception as e:r["error"]=str(e);r["isAllowed"]=True;r["crawlDelay"]=max({{inputs.baseDelaySeconds}},5.0);r["warning"]=f"error:{e}";print(f"WARN: {r['warning']}")
+      open('result.json','w').write(json.dumps(r))
+
+  - id: validate_crawling
+    type: io.kestra.plugin.core.flow.If
+    condition: "{{ json(read(outputs.check_robots.outputFiles['result.json'])).isAllowed == true }}"
+    then:
+      - id: collect_seed_urls
+        type: io.kestra.plugin.scripts.python.Script
+        taskRunner:
+          type: io.kestra.plugin.scripts.runner.docker.Docker
+          networkMode: kestra-net
+        beforeCommands:
+          - pip install -q curl-cffi beautifulsoup4 lxml
+        inputFiles:
+          robots.json: "{{outputs.check_robots.outputFiles['result.json']}}"
+        outputFiles:
+          - "*.json"
+        script: |
+          import json
+          from curl_cffi import requests
+          from urllib.parse import urlparse,urljoin
+          from bs4 import BeautifulSoup
+          print("\n## SEED COLLECTION")
+          ri=json.loads(open('robots.json').read())
+          site='{{inputs.siteUrl}}'
+          max_pg={{inputs.maxPages}}
+          urls=set([site])
+          s=requests.Session(impersonate="chrome")
+          print("Scanning sitemaps...")
+          for sm in ri.get("sitemaps",[])[:3]:
+              try:
+                  from xml.etree import ElementTree as ET
+                  root=ET.fromstring(s.get(sm,timeout=10).content)
+                  b4=len(urls)
+                  for loc in root.findall(".//{http://www.sitemaps.org/schemas/sitemap/0.9}loc"):
+                      if (t:=(loc.text or"").strip()):urls.add(t)
+                      if len(urls)>=max_pg:break
+                  print(f"  {sm.split('/')[-1]} +{len(urls)-b4}")
+              except:pass
+              if len(urls)>=max_pg:break
+          if len(urls)<max_pg:
+              print("Crawling homepage...")
+              try:
+                  soup=BeautifulSoup(s.get(site,timeout=10).text,"lxml")
+                  host=urlparse(site).netloc.replace("www.","")
+                  b4=len(urls)
+                  for a in soup.find_all("a",href=True):
+                      if len(urls)>=max_pg:break
+                      h=a["href"].strip()
+                      if not h.startswith(("#","mailto:","tel:","javascript:","data:")):
+                          abs_url=urljoin(site,h)
+                          if urlparse(abs_url).netloc.replace("www.","")==host:urls.add(abs_url)
+                  print(f"  Homepage +{len(urls)-b4}")
+              except:pass
+          res={"urls":list(urls)[:max_pg],"total":len(list(urls)[:max_pg])}
+          print(f"Total: {res['total']} URLs")
+          open('urls.json','w').write(json.dumps(res))
+
+      - id: create_tables
+        type: io.kestra.plugin.jdbc.postgresql.Queries
+        url: jdbc:postgresql://postgres:5432/kestra
+        username: kestra
+        password: k3str4_s3cr3t
+        sql: |
+          CREATE TABLE IF NOT EXISTS archived_sites(id SERIAL PRIMARY KEY,site_name TEXT NOT NULL,site_url TEXT NOT NULL,robots_txt_allowed BOOLEAN DEFAULT TRUE,created_at TIMESTAMP DEFAULT NOW(),UNIQUE(site_name,site_url));
+          CREATE TABLE IF NOT EXISTS archived_pages(id SERIAL PRIMARY KEY,site_name TEXT NOT NULL,url TEXT NOT NULL,html_content TEXT,title TEXT,meta_description TEXT,canonical_url TEXT,created_at TIMESTAMP DEFAULT NOW(),updated_at TIMESTAMP DEFAULT NOW(),UNIQUE(site_name,url));
+          CREATE TABLE IF NOT EXISTS archived_assets(id SERIAL PRIMARY KEY,site_name TEXT NOT NULL,asset_url TEXT NOT NULL,asset_type TEXT,content BYTEA,mime_type TEXT,file_size INT,local_path TEXT,created_at TIMESTAMP DEFAULT NOW(),UNIQUE(site_name,asset_url));
+          CREATE TABLE IF NOT EXISTS site_structure(id SERIAL PRIMARY KEY,site_name TEXT NOT NULL,page_url TEXT NOT NULL,linked_to_url TEXT NOT NULL,link_text TEXT,created_at TIMESTAMP DEFAULT NOW());
+          CREATE TABLE IF NOT EXISTS page_components(id SERIAL PRIMARY KEY,site_name TEXT NOT NULL,page_url TEXT NOT NULL,component_type TEXT NOT NULL,html_content TEXT NOT NULL,text_content TEXT,extracted_data JSONB,position_index INT,created_at TIMESTAMP DEFAULT NOW(),FOREIGN KEY(site_name,page_url)REFERENCES archived_pages(site_name,url));
+          CREATE TABLE IF NOT EXISTS schema_metadata(table_name TEXT PRIMARY KEY,description TEXT NOT NULL,usage_hint TEXT,example_query TEXT,created_at TIMESTAMP DEFAULT NOW());
+          CREATE INDEX IF NOT EXISTS idx_pages_site ON archived_pages(site_name);
+          CREATE INDEX IF NOT EXISTS idx_assets_site ON archived_assets(site_name);
+          CREATE INDEX IF NOT EXISTS idx_structure_site ON site_structure(site_name);
+          CREATE INDEX IF NOT EXISTS idx_components_type ON page_components(component_type);
+          CREATE INDEX IF NOT EXISTS idx_components_site ON page_components(site_name);
+          INSERT INTO schema_metadata VALUES('archived_pages','Full HTML with metadata','Get HTML by URL','SELECT html_content,title FROM archived_pages WHERE site_name=''site1'' AND url LIKE ''%services%''',NOW())ON CONFLICT(table_name)DO NOTHING;
+          INSERT INTO schema_metadata VALUES('archived_assets','Binary assets (images,CSS,JS)','Get assets. Content is BYTEA','SELECT asset_url,mime_type FROM archived_assets WHERE site_name=''site1'' AND asset_type=''img''',NOW())ON CONFLICT(table_name)DO NOTHING;
+          INSERT INTO schema_metadata VALUES('page_components','Extracted blocks with text+JSON. 9+ types: hero,header,nav,card,feature,testimonial,pricing,form,cta,faq,team,gallery,footer','Get reusable components. text_content=clean text, extracted_data=parsed info','SELECT component_type,text_content,extracted_data FROM page_components WHERE site_name=''site1'' AND component_type=''card''',NOW())ON CONFLICT(table_name)DO UPDATE SET description=EXCLUDED.description,usage_hint=EXCLUDED.usage_hint;
+          INSERT INTO schema_metadata VALUES('site_structure','Link graph','Understand navigation','SELECT linked_to_url,link_text FROM site_structure WHERE page_url=''https://...''',NOW())ON CONFLICT(table_name)DO NOTHING;
+
+      - id: filter_cached
+        type: io.kestra.plugin.jdbc.postgresql.Query
+        url: jdbc:postgresql://postgres:5432/kestra
+        username: kestra
+        password: k3str4_s3cr3t
+        fetchType: FETCH
+        sql: |
+          WITH input_urls AS(SELECT UNNEST(ARRAY[{%for u in json(read(outputs.collect_seed_urls.outputFiles['urls.json'])).urls%}'{{u}}'::text{%if not loop.last%},{%endif%}{%endfor%}])AS url)
+          SELECT iu.url FROM input_urls iu LEFT JOIN archived_pages ap ON ap.url=iu.url AND ap.site_name='{{inputs.siteName}}' AND ap.updated_at>NOW()-INTERVAL '7 days' WHERE ap.url IS NULL OR '{{inputs.forceCrawl}}'='true';
+
+      - id: full_site_archive
+        type: io.kestra.plugin.scripts.python.Script
+        taskRunner:
+          type: io.kestra.plugin.scripts.runner.docker.Docker
+          networkMode: kestra-net
+        beforeCommands:
+          - pip install -q curl-cffi beautifulsoup4 lxml
+        inputFiles:
+          robots.json: "{{outputs.check_robots.outputFiles['result.json']}}"
+        outputFiles:
+          - "crawler_output.json"
+        timeout: PT2H
+        retry:
+          type: exponential
+          interval: PT10S
+          maxAttempts: 3
+          maxInterval: PT1M
+        script: |
+          import json,time,random,base64,re
+          from curl_cffi import requests
+          from bs4 import BeautifulSoup
+          from urllib.parse import urlparse,urljoin
+          print("\n## CRAWLING v3.4")
+          b=lambda v:str(v).lower()in('true','1')
+          start=time.time()
+          robots=json.loads(open('robots.json').read())
+          bd=float(robots.get("crawlDelay",{{inputs.baseDelaySeconds}}))
+          urls=[r["url"]for r in {{outputs.filter_cached.rows|json}}][:{{inputs.maxPages}}]
+          site='{{inputs.siteName}}'
+          dl_assets=b('{{inputs.downloadAssets}}')
+          uas={{vars.browserUserAgents|json}}
+          if not urls:print("⚠️  NO URLS - all cached (updated <7d). Use forceCrawl=true or clear DB or new siteName");open('crawler_output.json','w').write(json.dumps({"pages":[],"assets":[],"structure":[],"components":[],"pagesCount":0,"assetsCount":0}));exit(0)
+          print(f"{len(urls)} pages | {bd}s delay | assets:{'ON' if dl_assets else 'OFF'}")
+          s=requests.Session(impersonate="chrome110")
+          s.headers.update({"Accept":"text/html,application/xhtml+xml","Accept-Language":"en-US","DNT":"1"})
+          hp=lambda a:any(x in(a.get("style")or"").lower()for x in["display:none","hidden"])or any(x in" ".join(a.get("class",[])).lower()for x in["hidden","d-none","sr-only"])or(not a.get_text(strip=True)and not a.find("img"))
+          lp=lambda u:(p:=urlparse(u).path or"/")and(p if p=="/" else p if re.search(r'\.[a-z]{2,5}$',p,re.I)else p.rstrip("/")+"/index.html")
+          dla=lambda u,t:(r:=s.get(u,timeout=10))and r.status_code==200 and{"url":u,"type":t,"content":base64.b64encode(r.content).decode(),"mime":r.headers.get("Content-Type","application/octet-stream"),"size":len(r.content),"localPath":urlparse(u).netloc+lp(u)}or None
+          txt=lambda e:e.get_text(" ",strip=True)if e else""
+          lnk=lambda e:[{"text":txt(a),"href":a.get('href')}for a in e.find_all('a')if txt(a)]
+          def ec(s,u):
+              c,pos=[],0
+              add=lambda t,h,tx,d:(c.append({"siteName":site,"pageUrl":u,"type":t,"html":str(h),"text":tx,"data":d,"pos":pos}),c)[-1]
+              if hero:=s.find(['section','div'],class_=re.compile(r'(hero|banner)',re.I)):
+                  h,p,btn,img=hero.find(['h1','h2']),hero.find('p'),hero.find(['a','button'],class_=re.compile(r'btn',re.I)),hero.find('img')
+                  add('hero',hero,txt(hero)[:500],{"heading":txt(h),"subheading":txt(p),"cta":txt(btn),"ctaHref":btn.get('href')if btn and btn.name=='a'else None,"img":img.get('src')if img else None,"imgAlt":img.get('alt')if img else None});pos+=1
+              if h:=s.find('header'):add('header',h,txt(h)[:300],{"links":lnk(h)});pos+=1
+              if n:=s.find('nav'):add('nav',n,txt(n)[:300],{"links":lnk(n)});pos+=1
+              for cd in s.find_all(['div','article','section'],class_=re.compile(r'(service|product|card)',re.I)):
+                  if 50<len(str(cd))<5000:
+                      h3,pr,img,a,price=cd.find(['h3','h4','h2']),cd.find('p'),cd.find('img'),cd.find('a'),cd.find(class_=re.compile(r'price',re.I))
+                      add('card',cd,txt(cd)[:400],{"name":txt(h3),"desc":txt(pr),"img":img.get('src')if img else None,"imgAlt":img.get('alt')if img else None,"cta":txt(a),"ctaHref":a.get('href')if a else None,"price":txt(price)});pos+=1
+              if feat:=s.find(['section','div'],class_=re.compile(r'(feature|benefit)',re.I)):
+                  add('feature',feat,txt(feat)[:500],{"items":[{"title":txt(h),"text":txt(h.find_next(['p','div']))}for h in feat.find_all(['h3','h4'])[:6]]});pos+=1
+              for test in s.find_all(['div','section','blockquote'],class_=re.compile(r'(testimonial|review)',re.I)):
+                  if len(str(test))>50:
+                      auth,rat=test.find(class_=re.compile(r'(author|name)',re.I)),test.find(class_=re.compile(r'rating',re.I))
+                      add('testimonial',test,txt(test)[:300],{"quote":txt(test),"author":txt(auth),"rating":txt(rat)});pos+=1
+              for pr in s.find_all(['div','section'],class_=re.compile(r'(pricing|plan)',re.I)):
+                  if 50<len(str(pr))<3000:
+                      nm,prc,btn=pr.find(['h3','h4']),pr.find(class_=re.compile(r'price',re.I)),pr.find(['a','button'],class_=re.compile(r'btn',re.I))
+                      add('pricing',pr,txt(pr)[:400],{"plan":txt(nm),"price":txt(prc),"features":[txt(f)for f in pr.find_all('li')[:10]],"cta":txt(btn),"ctaHref":btn.get('href')if btn and btn.name=='a'else None});pos+=1
+              for fm in s.find_all('form'):
+                  if len(str(fm))>50:
+                      btn=fm.find(['button','input'],attrs={'type':re.compile(r'submit',re.I)})
+                      add('form',fm,txt(fm)[:300],{"action":fm.get('action'),"method":fm.get('method'),"fields":[{"type":i.get('type'),"name":i.get('name'),"placeholder":i.get('placeholder')}for i in fm.find_all(['input','textarea','select'])],"submit":txt(btn)});pos+=1
+              for ct in s.find_all(['a','button'],class_=re.compile(r'cta',re.I)):
+                  if txt(ct):add('cta',ct,txt(ct),{"text":txt(ct),"href":ct.get('href')if ct.name=='a'else None});pos+=1
+              if faq:=s.find(['div','section'],class_=re.compile(r'faq',re.I)):
+                  qa=[{"q":txt(q),"a":txt(q.find_next(['p','div']))}for q in faq.find_all(['h3','h4','dt'])[:8]]
+                  if qa:add('faq',faq,txt(faq)[:500],{"items":qa});pos+=1
+              if team:=s.find(['div','section'],class_=re.compile(r'team',re.I)):
+                  mems=[{"name":txt(m.find(['h3','h4'])),"role":txt(m.find(class_=re.compile(r'(role|title)',re.I))),"img":m.find('img').get('src')if m.find('img')else None}for m in team.find_all(['div','article'],class_=re.compile(r'member',re.I))[:10]]
+                  if mems:add('team',team,txt(team)[:500],{"members":mems});pos+=1
+              if gal:=s.find(['div','section'],class_=re.compile(r'gallery',re.I)):
+                  imgs=[{"src":img.get('src'),"alt":img.get('alt')}for img in gal.find_all('img')[:20]]
+                  if imgs:add('gallery',gal,"",{"images":imgs});pos+=1
+              if f:=s.find('footer'):add('footer',f,txt(f)[:300],{"text":txt(f)[:200],"links":lnk(f)})
+              return c
+          pages,assets,links,comps=[],[],[],[]
+          sz_h,sz_a=0,0
+          for i,url in enumerate(urls):
+              t0=time.time()
+              if i>0:time.sleep(max(random.uniform(bd*0.8,bd*1.8),5.0)+(random.uniform(20,40)if i%random.randint(5,7)==0 else 0))
+              s.headers["User-Agent"]=random.choice(uas)
+              try:
+                  r=s.get(url,timeout=60)
+                  if r.status_code==429:t=int(r.headers.get('Retry-After',60));print(f"[{i+1}] PAUSE {t}s");time.sleep(t);bd*=1.5;continue
+                  if r.status_code==403:print(f"[{i+1}] BLOCKED");time.sleep(60);break
+                  if r.status_code!=200:print(f"[{i+1}] ERR {r.status_code}");continue
+                  html,sz=r.text,len(r.text)
+                  sz_h+=sz
+                  soup=BeautifulSoup(html,"lxml")
+                  title=(soup.find("title").get_text().strip()if soup.find("title")else"Untitled")[:50]
+                  meta=soup.find("meta",attrs={"name":"description"})
+                  desc=meta["content"].strip()if meta and meta.get("content")else""
+                  can=soup.find("link",attrs={"rel":"canonical"})
+                  pages.append({"siteName":site,"url":url,"html":html,"title":title,"metaDesc":desc,"canonical":can["href"]if can and can.get("href")else url,"localPath":urlparse(url).netloc+lp(url)})
+                  pc=ec(soup,url)
+                  comps.extend(pc)
+                  host=urlparse(url).netloc.replace("www.","")
+                  lc=0
+                  for a in soup.find_all("a",href=True):
+                      if not hp(a):
+                          h=a["href"].strip()
+                          if not h.startswith(("#","mailto:","tel:","javascript:","data:")):
+                              abs_url=urljoin(url,h)
+                              if urlparse(abs_url).netloc.replace("www.","")==host:links.append({"siteName":site,"pageUrl":url,"linkedToUrl":abs_url,"linkText":a.get_text(strip=True)[:200]});lc+=1
+                  ac=0
+                  if dl_assets:
+                      for css in soup.find_all("link",attrs={"rel":"stylesheet"}):
+                          if css.get("href")and(a:=dla(urljoin(url,css["href"]),"css")):assets.append(a);ac+=1;time.sleep(random.uniform(0.5,1.5))
+                      for js in soup.find_all("script",src=True):
+                          if(a:=dla(urljoin(url,js["src"]),"js")):assets.append(a);ac+=1;time.sleep(random.uniform(0.5,1.5))
+                      for img in soup.find_all("img",src=True):
+                          if(a:=dla(urljoin(url,img["src"]),"img")):assets.append(a);ac+=1;sz_a+=a["size"];time.sleep(random.uniform(0.5,1.5))
+                  print(f"[{i+1}] {sz//1024}K {ac}a {lc}l {len(pc)}c {time.time()-t0:.1f}s {title}")
+              except Exception as e:print(f"[{i+1}] ERR {str(e)[:40]}");continue
+          open('crawler_output.json','w').write(json.dumps({"pages":pages,"assets":assets,"structure":links,"components":comps,"pagesCount":len(pages),"assetsCount":len(assets)}))
+          print(f"\nDONE {(time.time()-start)/60:.1f}min | {len(pages)}p {len(assets)}a {len(links)}l {len(comps)}c")
+
+      - id: register_site
+        type: io.kestra.plugin.jdbc.postgresql.Queries
+        url: jdbc:postgresql://postgres:5432/kestra
+        username: kestra
+        password: k3str4_s3cr3t
+        sql: |
+          INSERT INTO archived_sites(site_name,site_url,robots_txt_allowed)VALUES('{{inputs.siteName}}','{{inputs.siteUrl}}',true)ON CONFLICT(site_name,site_url)DO UPDATE SET created_at=NOW();
+
+      - id: save_pages
+        type: io.kestra.plugin.scripts.python.Script
+        taskRunner:
+          type: io.kestra.plugin.scripts.runner.docker.Docker
+          networkMode: kestra-net
+        beforeCommands:
+          - pip install -q psycopg2-binary
+        inputFiles:
+          crawler_output.json: "{{outputs.full_site_archive.outputFiles['crawler_output.json']}}"
+        script: |
+          import json,psycopg2
+          from psycopg2.extras import execute_values
+          print("\n## DATABASE SAVE")
+          d=json.loads(open('crawler_output.json').read())
+          c=psycopg2.connect(host='postgres',database='kestra',user='kestra',password='k3str4_s3cr3t')
+          cur=c.cursor()
+          if p:=d.get('pages',[]):print(f"Pages: {len(p)}");execute_values(cur,"INSERT INTO archived_pages(site_name,url,html_content,title,meta_description,canonical_url)VALUES %s ON CONFLICT(site_name,url)DO UPDATE SET html_content=EXCLUDED.html_content,title=EXCLUDED.title,meta_description=EXCLUDED.meta_description,canonical_url=EXCLUDED.canonical_url,updated_at=NOW()",[(x['siteName'],x['url'],x['html'],x['title'],x['metaDesc'],x['canonical'])for x in p])
+          c.commit();cur.close();c.close()
+
+      - id: save_assets
+        type: io.kestra.plugin.scripts.python.Script
+        taskRunner:
+          type: io.kestra.plugin.scripts.runner.docker.Docker
+          networkMode: kestra-net
+        beforeCommands:
+          - pip install -q psycopg2-binary
+        inputFiles:
+          crawler_output.json: "{{outputs.full_site_archive.outputFiles['crawler_output.json']}}"
+        script: |
+          import json,psycopg2,base64
+          from psycopg2.extras import execute_values
+          if str('{{inputs.downloadAssets}}').lower()not in('true','1'):print("Assets: OFF")
+          else:
+              d=json.loads(open('crawler_output.json').read())
+              c=psycopg2.connect(host='postgres',database='kestra',user='kestra',password='k3str4_s3cr3t')
+              cur=c.cursor()
+              if a:=d.get('assets',[]):print(f"Assets: {len(a)}");execute_values(cur,"INSERT INTO archived_assets(site_name,asset_url,asset_type,content,mime_type,file_size,local_path)VALUES %s ON CONFLICT(site_name,asset_url)DO NOTHING",[('{{inputs.siteName}}',x['url'],x['type'],psycopg2.Binary(base64.b64decode(x['content'])),x['mime'],x['size'],x['localPath'])for x in a])
+              c.commit();cur.close();c.close()
+
+      - id: save_structure
+        type: io.kestra.plugin.scripts.python.Script
+        taskRunner:
+          type: io.kestra.plugin.scripts.runner.docker.Docker
+          networkMode: kestra-net
+        beforeCommands:
+          - pip install -q psycopg2-binary
+        inputFiles:
+          crawler_output.json: "{{outputs.full_site_archive.outputFiles['crawler_output.json']}}"
+        script: |
+          import json,psycopg2
+          from psycopg2.extras import execute_values
+          d=json.loads(open('crawler_output.json').read())
+          c=psycopg2.connect(host='postgres',database='kestra',user='kestra',password='k3str4_s3cr3t')
+          cur=c.cursor()
+          if s:=d.get('structure',[]):print(f"Links: {len(s)}");execute_values(cur,"INSERT INTO site_structure(site_name,page_url,linked_to_url,link_text)VALUES %s",[(x['siteName'],x['pageUrl'],x['linkedToUrl'],x['linkText'])for x in s])
+          c.commit();cur.close();c.close()
+
+      - id: save_components
+        type: io.kestra.plugin.scripts.python.Script
+        taskRunner:
+          type: io.kestra.plugin.scripts.runner.docker.Docker
+          networkMode: kestra-net
+        beforeCommands:
+          - pip install -q psycopg2-binary
+        inputFiles:
+          crawler_output.json: "{{outputs.full_site_archive.outputFiles['crawler_output.json']}}"
+        script: |
+          import json,psycopg2
+          from psycopg2.extras import execute_values
+          d=json.loads(open('crawler_output.json').read())
+          c=psycopg2.connect(host='postgres',database='kestra',user='kestra',password='k3str4_s3cr3t')
+          cur=c.cursor()
+          if cm:=d.get('components',[]):print(f"Components: {len(cm)}");execute_values(cur,"INSERT INTO page_components(site_name,page_url,component_type,html_content,text_content,extracted_data,position_index)VALUES %s ON CONFLICT DO NOTHING",[(x['siteName'],x['pageUrl'],x['type'],x['html'],x.get('text',''),json.dumps(x['data']),x['pos'])for x in cm])
+          c.commit();cur.close();c.close()
+
+      - id: log_stats
+        type: io.kestra.plugin.scripts.python.Script
+        inputFiles:
+          crawler_output.json: "{{outputs.full_site_archive.outputFiles['crawler_output.json']}}"
+        script: |
+          import json
+          d=json.loads(open('crawler_output.json').read())
+          ct={}
+          for c in d.get('components',[]):ct[c['type']]=ct.get(c['type'],0)+1
+          print(f"\n{'='*60}\nCOMPLETE\nSite: {{inputs.siteName}}\nURL: {{inputs.siteUrl}}\nPages: {d['pagesCount']} | Assets: {d['assetsCount']} | Links: {len(d.get('structure',[]))} | Components: {len(d.get('components',[]))}\nTypes: {','.join(f'{k}({v})'for k,v in sorted(ct.items()))}\n{'='*60}")
+    else:
+      - id: skip_crawling
+        type: io.kestra.plugin.core.log.Log
+        message: |
+          SKIPPED {{inputs.siteUrl}}
+          Reason: robots.txt disallows
+      - id: log_blocked_site
+        type: io.kestra.plugin.jdbc.postgresql.Queries
+        url: jdbc:postgresql://postgres:5432/kestra
+        username: kestra
+        password: k3str4_s3cr3t
+        sql: |
+          CREATE TABLE IF NOT EXISTS archived_sites(id SERIAL PRIMARY KEY,site_name TEXT NOT NULL,site_url TEXT NOT NULL,robots_txt_allowed BOOLEAN DEFAULT TRUE,created_at TIMESTAMP DEFAULT NOW(),UNIQUE(site_name,site_url));INSERT INTO archived_sites(site_name,site_url,robots_txt_allowed,created_at)VALUES('{{inputs.siteName}}','{{inputs.siteUrl}}',false,NOW())ON CONFLICT(site_name,site_url)DO UPDATE SET robots_txt_allowed=false,created_at=NOW();
+
+errors:
+  - id: log_failure
+    type: io.kestra.plugin.scripts.python.Script
+    script: |
+      import json
+      from datetime import datetime,timezone
+      e={"ts":datetime.now(timezone.utc).isoformat(),"flow":"{{flow.id}}","exec":"{{execution.id}}","in":{"url":"{{inputs.siteUrl}}","site":"{{inputs.siteName}}"}}
+      print(f"\n{'='*60}\nFAILED\n{json.dumps(e,indent=2)}\n{'='*60}")
