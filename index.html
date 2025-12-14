@@ -68,11 +68,9 @@
             border-radius: 12px;
             padding: 30px;
             transition: all 0.3s ease;
-            cursor: pointer;
-            text-decoration: none;
-            color: inherit;
             display: flex;
             flex-direction: column;
+            height: 100%;
         }
         
         .site-card:hover {
@@ -106,9 +104,7 @@
         .stats {
             display: flex;
             gap: 15px;
-            margin-top: auto;
-            padding-top: 15px;
-            border-top: 1px solid #e9ecef;
+            margin: 20px 0;
         }
         
         .stat {
@@ -128,21 +124,54 @@
             margin-top: 5px;
         }
         
-        .cta-button {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            margin-top: 15px;
-            font-weight: 500;
-            transition: all 0.3s ease;
+        .csv-buttons {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
         }
         
-        .site-card:hover .cta-button {
-            background: #764ba2;
-            transform: translateX(4px);
+        .csv-btn {
+            flex: 1;
+            min-width: 100px;
+            padding: 10px 15px;
+            background: #e9ecef;
+            color: #667eea;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .csv-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .view-button {
+            display: block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            margin-top: auto;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        
+        .view-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
         }
         
         .info-section {
@@ -218,7 +247,7 @@
             
             <div class="sites-grid">
                 <!-- Medley HVAC -->
-                <a href="sites/medley_hvac_full_v2/" class="site-card">
+                <div class="site-card">
                     <h3><span class="emoji">🔧</span> Medley HVAC</h3>
                     <div class="service">Heating, Air Conditioning & Plumbing</div>
                     <div class="location">📍 Carrollton, Texas</div>
@@ -236,12 +265,19 @@
                             <div class="stat-label">Links</div>
                         </div>
                     </div>
-                    <span class="cta-button">View Archive →</span>
-                </a>
+                    
+                    <div class="csv-buttons">
+                        <a href="data/medley_hvac_full_v2/pages_20251214_180613.csv" class="csv-btn" download>📄 Pages CSV</a>
+                        <a href="data/medley_hvac_full_v2/components_20251214_180613.csv" class="csv-btn" download>🧩 Components CSV</a>
+                        <a href="data/medley_hvac_full_v2/structure_20251214_180613.csv" class="csv-btn" download>🔗 Structure CSV</a>
+                    </div>
+                    
+                    <a href="sites/medley_hvac_full_v2/" class="view-button">➜ View Archive</a>
+                </div>
             </div>
             
             <div class="info-section">
-                <h3>📊 Archive Information</h3>
+                <h3>📋 Archive Information</h3>
                 <ul>
                     <li>Complete website snapshots with full HTML content</li>
                     <li>Preserved page structure and metadata</li>
@@ -256,11 +292,11 @@
                 <ul style="list-style: none;">
                     <li style="padding-left: 30px; position: relative;">
                         <span style="position: absolute; left: 0; color: #ff69b4;">→</span>
-                        Click on any site card above to browse the archive
+                        Click <strong>"View Archive"</strong> button above to browse the website
                     </li>
                     <li style="padding-left: 30px; position: relative;">
                         <span style="position: absolute; left: 0; color: #ff69b4;">→</span>
-                        Download CSV data from the archive directory
+                        Click CSV buttons to download data files
                     </li>
                     <li style="padding-left: 30px; position: relative;">
                         <span style="position: absolute; left: 0; color: #ff69b4;">→</span>
