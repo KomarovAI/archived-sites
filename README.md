@@ -1,50 +1,70 @@
-# Archived Sites
+# 📚 Archived Sites
 
-Automated archive of crawled websites exported from Kestra workflows.
+Automated archive of crawled websites exported from Kestra/Dagster workflows. Each site stored in separate directory with full page data, components, and link structure.
 
-## Structure
+## 🌐 View Archive
 
-Each website is stored in its own directory:
+**[Open GitHub Pages Archive →](https://komarovai.github.io/archived-sites/)**
+
+## 📊 Available Sites
+
+### 🏠 Medley HVAC (Carrollton, TX)
+- **URL**: https://callmedley.com
+- **Pages**: 50
+- **Components**: 401
+- **Links**: 6,378
+- **Data Location**: `/data/medley_hvac_full_v2/`
+
+#### Download Data
+- [📄 Pages CSV](data/medley_hvac_full_v2/pages_20251214_180613.csv)
+- [🧩 Components CSV](data/medley_hvac_full_v2/components_20251214_180613.csv)
+- [🔗 Structure CSV](data/medley_hvac_full_v2/structure_20251214_180613.csv)
+
+## 🛠️ Technical Details
+
+- **Scraper**: Kestra Workflow Engine
+- **Data Processing**: Dagster
+- **Database**: PostgreSQL
+- **Export**: GitHub API
+- **Format**: CSV
+
+## 📁 Directory Structure
 
 ```
 archived-sites/
-├── site1/
-│   ├── index.html
-│   ├── page1.html
-│   ├── page2.html
-│   └── assets/
-│       ├── images/
-│       ├── css/
-│       └── js/
-├── site2/
-│   ├── index.html
-│   └── ...
-└── site3/
-    └── ...
+├── data/
+│   ├── medley_hvac_full_v2/
+│   │   ├── pages_*.csv
+│   │   ├── components_*.csv
+│   │   └── structure_*.csv
+│   └── [other sites]/
+├── index.html
+└── README.md
 ```
 
-## Workflow
+## 📝 CSV Format
 
-1. **Crawler**: `full-site-crawler` workflow crawls websites → saves to PostgreSQL
-2. **Export**: `db-to-github-export` workflow exports from PostgreSQL → pushes to this repo
+### Pages
+- `url` - Page URL
+- `title` - Page title
+- `meta_description` - Meta description
 
-## Automation
+### Components
+- `page_url` - Source page
+- `component_type` - HTML tag type
+- `text_content` - Text content
+- `extracted_data` - JSON data
+- `position_index` - Position on page
 
-- Commits are automated by Kestra workflow
-- Each export creates commit: `Auto-export site {name} from DB [{timestamp}]`
-- Sites are versioned through Git history
+### Structure
+- `page_url` - Source page
+- `linked_to_url` - Target URL
+- `link_text` - Link anchor text
 
-## Source
+## ⚙️ Automated Updates
 
-Exported from: [kestra-docker-starter](https://github.com/KomarovAI/kestra-docker-starter)
+New sites are automatically added via GitHub Actions workflow when pushed to this repository.
 
-## Usage
+---
 
-Browse any site directory to view archived HTML files. All sites are static and can be:
-- Viewed directly in GitHub
-- Downloaded for offline browsing
-- Deployed to static hosting (GitHub Pages, Netlify, etc.)
-
-## Privacy
-
-🔒 This repository is **private**. Only authorized users can access archived sites.
+**Last Updated**: December 14, 2025
