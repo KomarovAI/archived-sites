@@ -1,70 +1,68 @@
-# 📚 Archived Sites
+# Archived Sites Repository
 
-Automated archive of crawled websites exported from Kestra/Dagster workflows. Each site stored in separate directory with full page data, components, and link structure.
+**GitHub Pages Deployment Target** for [web-crawler](https://github.com/KomarovAI/web-crawler)
 
-## 🌐 View Archive
+## Branches
 
-**[Open GitHub Pages Archive →](https://komarovai.github.io/archived-sites/)**
+- **`main`** → Configuration, documentation, and metadata
+- **`gh-pages`** → Deployed static websites (auto-updated via workflow)
 
-## 📊 Available Sites
+## Deployment Flow
 
-### 🏠 Medley HVAC (Carrollton, TX)
-- **URL**: https://callmedley.com
-- **Pages**: 50
-- **Components**: 401
-- **Links**: 6,378
-- **Data Location**: `/data/medley_hvac_full_v2/`
-
-#### Download Data
-- [📄 Pages CSV](data/medley_hvac_full_v2/pages_20251214_180613.csv)
-- [🧩 Components CSV](data/medley_hvac_full_v2/components_20251214_180613.csv)
-- [🔗 Structure CSV](data/medley_hvac_full_v2/structure_20251214_180613.csv)
-
-## 🛠️ Technical Details
-
-- **Scraper**: Kestra Workflow Engine
-- **Data Processing**: Dagster
-- **Database**: PostgreSQL
-- **Export**: GitHub API
-- **Format**: CSV
-
-## 📁 Directory Structure
-
-```
-archived-sites/
-├── data/
-│   ├── medley_hvac_full_v2/
-│   │   ├── pages_*.csv
-│   │   ├── components_*.csv
-│   │   └── structure_*.csv
-│   └── [other sites]/
-├── index.html
-└── README.md
+```mermaid
+web-crawler (download-site.yml)
+    ↓
+    [artifact: site-archive-RUN_ID]
+    ↓
+archived-sites (deploy-pages.yml)
+    ↓
+    gh-pages branch
+    ↓
+https://KomarovAI.github.io/archived-sites/
 ```
 
-## 📝 CSV Format
+## How It Works
 
-### Pages
-- `url` - Page URL
-- `title` - Page title
-- `meta_description` - Meta description
+1. **Source Workflow** (`web-crawler`): Downloads website, creates artifact
+2. **Deploy Workflow** (`archived-sites`): 
+   - Receives artifact from source run
+   - Creates orphan `gh-pages` branch
+   - Copies files to gh-pages
+   - Cleans WARC files
+   - Rewrites URLs to local paths
+   - Force pushes to `gh-pages`
+3. **GitHub Pages**: Automatically serves `gh-pages` branch
 
-### Components
-- `page_url` - Source page
-- `component_type` - HTML tag type
-- `text_content` - Text content
-- `extracted_data` - JSON data
-- `position_index` - Position on page
+## Configuration
 
-### Structure
-- `page_url` - Source page
-- `linked_to_url` - Target URL
-- `link_text` - Link anchor text
+### `.gitignore`
+Excludes temporary and build files from git tracking.
 
-## ⚙️ Automated Updates
+### `.github/workflows/`
+Contains GitHub Actions workflows for deployment automation.
 
-New sites are automatically added via GitHub Actions workflow when pushed to this repository.
+## Access
+
+- **Live Site**: https://KomarovAI.github.io/archived-sites/
+- **Repository**: https://github.com/KomarovAI/archived-sites
+- **Main Branch**: Configuration and documentation
+- **GH-Pages Branch**: Active site content
+
+## Latest Updates
+
+- ✅ Deployed: `example.com` (2025-12-23)
+- ✅ Files: 39 | Size: 1.2M
+- ✅ Status: Active
+
+## Maintenance
+
+All deployments are automated. New sites are added via source workflow runs.
+
+For manual updates, push to `gh-pages` branch using force update:
+```bash
+git push origin gh-pages --force
+```
 
 ---
 
-**Last Updated**: December 14, 2025
+*Automated archive of crawled websites. Each deployment creates a fresh orphan branch.*
