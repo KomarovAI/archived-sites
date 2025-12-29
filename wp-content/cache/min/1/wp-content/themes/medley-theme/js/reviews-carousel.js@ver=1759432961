@@ -1,0 +1,10 @@
+document.addEventListener('DOMContentLoaded',function(){const carousels=document.querySelectorAll('.reviews-carousel-widget');carousels.forEach(function(carousel){const track=carousel.querySelector('.reviews-carousel-track');const slides=carousel.querySelectorAll('.review-slide');const prevBtn=carousel.querySelector('.carousel-prev');const nextBtn=carousel.querySelector('.carousel-next');if(!track||slides.length===0)return;let currentSlide=0;const totalSlides=slides.length;function initCarousel(){slides.forEach(function(slide,index){slide.classList.remove('active','prev');if(index===0){slide.classList.add('active')}});updateButtons()}
+function updateButtons(){if(totalSlides<=1){prevBtn.style.display='none';nextBtn.style.display='none';return}
+prevBtn.disabled=currentSlide===0;nextBtn.disabled=currentSlide===totalSlides-1}
+function goToSlide(slideIndex){if(slideIndex<0||slideIndex>=totalSlides)return;slides.forEach(function(slide){slide.classList.remove('active','prev')});if(slides[currentSlide]){slides[currentSlide].classList.add('prev')}
+currentSlide=slideIndex;slides[currentSlide].classList.add('active');updateButtons()}
+function nextSlide(){if(currentSlide<totalSlides-1){goToSlide(currentSlide+1)}}
+function prevSlide(){if(currentSlide>0){goToSlide(currentSlide-1)}}
+if(nextBtn){nextBtn.addEventListener('click',nextSlide)}
+if(prevBtn){prevBtn.addEventListener('click',prevSlide)}
+carousel.addEventListener('keydown',function(e){if(e.key==='ArrowLeft'){e.preventDefault();prevSlide()}else if(e.key==='ArrowRight'){e.preventDefault();nextSlide()}});carousel.setAttribute('tabindex','0');initCarousel()})})

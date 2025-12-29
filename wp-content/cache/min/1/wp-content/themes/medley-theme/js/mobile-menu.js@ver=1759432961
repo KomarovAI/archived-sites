@@ -1,0 +1,85 @@
+document.addEventListener('DOMContentLoaded',function(){const menuToggle=document.querySelector('.menu-toggle');const mobileMenu=document.querySelector('#mobile-menu');if(menuToggle&&mobileMenu){menuToggle.addEventListener('click',function(){const isExpanded=menuToggle.getAttribute('aria-expanded')==='true';menuToggle.setAttribute('aria-expanded',!isExpanded);mobileMenu.classList.toggle('active')});const mobileDropdownItems=mobileMenu.querySelectorAll('.menu-item-has-children');mobileDropdownItems.forEach(function(item,index){const submenu=item.querySelector('.sub-menu');const toggleButton=item.querySelector('.mobile-submenu-toggle');const link=item.querySelector('a');if(toggleButton&&submenu){toggleButton.addEventListener('click',function(event){event.preventDefault();event.stopPropagation();mobileDropdownItems.forEach(function(otherItem){if(otherItem!==item){otherItem.classList.remove('mobile-submenu-open');const otherToggle=otherItem.querySelector('.mobile-submenu-toggle');if(otherToggle){otherToggle.setAttribute('aria-expanded','false')}}});const isOpen=item.classList.contains('mobile-submenu-open');item.classList.toggle('mobile-submenu-open');toggleButton.setAttribute('aria-expanded',!isOpen);if(!isOpen){submenu.style.cssText=`
+                            display: block !important;
+                            max-height: 500px !important;
+                            opacity: 1 !important;
+                            visibility: visible !important;
+                            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+                            padding: 12px 0 !important;
+                            margin: 12px 16px !important;
+                            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+                            position: relative !important;
+                            z-index: 99999 !important;
+                            height: auto !important;
+                            width: auto !important;
+                            backdrop-filter: blur(15px) !important;
+                            border-radius: 12px !important;
+                            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+                            transform: translateY(0) !important;
+                        `;if(!isOpen){const parentLink=item.querySelector('a');const isServicesMenu=parentLink&&parentLink.textContent.trim().toLowerCase().includes('service');const megaMenuCategories=submenu.querySelector('.mega-menu-categories');const shouldPopulate=isServicesMenu&&megaMenuCategories&&megaMenuCategories.children.length===0;if(shouldPopulate){console.log('CONVERTING Services to regular submenu structure like About Us/Financing');submenu.innerHTML=`
+                                    <li class="menu-item">
+                                        <a href="/service-category/cooling/">Cooling</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/service-category/heating/">Heating</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/service-category/plumbing/">Plumbing</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/service-category/home-performance/">Home Performance</a>
+                                    </li>
+                                `;console.log('Services converted to regular submenu, new HTML:',submenu.innerHTML)}
+const viewportHeight=window.innerHeight;const submenuRect=submenu.getBoundingClientRect();const availableHeight=viewportHeight-submenuRect.top-50;const responsiveMaxHeight=Math.min(400,Math.max(200,availableHeight));submenu.style.cssText=`
+                                display: block !important;
+                                max-height: ${responsiveMaxHeight}px !important;
+                                opacity: 1 !important;
+                                visibility: visible !important;
+                                background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+                                padding: 12px 0 !important;
+                                margin: 12px 16px !important;
+                                border: 1px solid rgba(255, 255, 255, 0.15) !important;
+                                position: relative !important;
+                                z-index: 99999 !important;
+                                height: auto !important;
+                                width: auto !important;
+                                backdrop-filter: blur(15px) !important;
+                                border-radius: 12px !important;
+                                transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+                                transform: translateY(0) !important;
+                                overflow-y: auto !important;
+                            `;const menuItems=submenu.querySelectorAll('li');menuItems.forEach(function(menuItem){menuItem.style.cssText=`
+                                    display: block !important;
+                                    position: relative !important;
+                                    background: transparent !important;
+                                    border: none !important;
+                                    margin-bottom: 4px !important;
+                                    border-radius: 8px !important;
+                                    overflow: hidden !important;
+                                `;const menuLink=menuItem.querySelector('a');if(menuLink){menuLink.style.cssText=`
+                                        display: block !important;
+                                        padding: 12px 20px !important;
+                                        color: rgba(255, 255, 255, 0.9) !important;
+                                        text-decoration: none !important;
+                                        transition: all 0.3s ease !important;
+                                        position: relative !important;
+                                        z-index: 10 !important;
+                                        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+                                        font-weight: 500 !important;
+                                        font-size: 16px !important;
+                                        cursor: pointer !important;
+                                        pointer-events: auto !important;
+                                    `;menuLink.addEventListener('mouseenter',function(){this.style.color='#ff6b35';this.style.transform='translateX(6px)';this.style.textShadow='0 2px 6px rgba(232, 90, 43, 0.4)'});menuLink.addEventListener('mouseleave',function(){this.style.color='rgba(255, 255, 255, 0.9)';this.style.transform='translateX(0)';this.style.textShadow='0 1px 2px rgba(0, 0, 0, 0.3)'});menuLink.addEventListener('click',function(e){console.log('Services link clicked:',this.href)})}})}}else{submenu.style.cssText=`
+                            max-height: 0 !important;
+                            opacity: 0 !important;
+                            visibility: hidden !important;
+                            padding: 0 !important;
+                            margin: 12px 16px 0 16px !important;
+                            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+                            transform: translateY(-10px) !important;
+                        `;setTimeout(()=>{if(!item.classList.contains('mobile-submenu-open')){submenu.style.display='none'}},400)}})}else if(link){if(submenu&&submenu.children.length>0){link.addEventListener('click',function(event){event.preventDefault();event.stopPropagation();mobileDropdownItems.forEach(function(otherItem){if(otherItem!==item){otherItem.classList.remove('mobile-submenu-open')}});item.classList.toggle('mobile-submenu-open')})}}});document.addEventListener('click',function(event){if(!menuToggle.contains(event.target)&&!mobileMenu.contains(event.target)){if(mobileMenu.classList.contains('active')){menuToggle.click()}}});window.addEventListener('resize',function(){if(window.innerWidth>=1024&&mobileMenu.classList.contains('active')){menuToggle.click()}})}
+const desktopDropdownItems=document.querySelectorAll('.main-navigation .menu-item-has-children');desktopDropdownItems.forEach(function(item){const submenu=item.querySelector('.sub-menu');let hoverTimeout;if(submenu){const hasNestedSubmenus=submenu.querySelectorAll('.menu-item-has-children').length>0;if(hasNestedSubmenus){item.classList.add('has-mega-menu');submenu.classList.add('mega-menu');organizeMegaMenuColumns(submenu)}
+if(hasNestedSubmenus){const menuLink=item.querySelector('a');menuLink.addEventListener('mouseenter',function(){clearTimeout(hoverTimeout);item.classList.add('dropdown-hover')});menuLink.addEventListener('mouseleave',function(){hoverTimeout=setTimeout(function(){item.classList.remove('dropdown-hover')},300)});submenu.addEventListener('mouseenter',function(){clearTimeout(hoverTimeout)});submenu.addEventListener('mouseleave',function(){hoverTimeout=setTimeout(function(){item.classList.remove('dropdown-hover')},150)})}else{item.addEventListener('mouseenter',function(){clearTimeout(hoverTimeout);item.classList.add('dropdown-hover')});item.addEventListener('mouseleave',function(){hoverTimeout=setTimeout(function(){item.classList.remove('dropdown-hover')},150)})}}});const mobileDropdownItemsWithMega=mobileMenu.querySelectorAll('.menu-item-has-children');mobileDropdownItemsWithMega.forEach(function(item){const submenu=item.querySelector('.sub-menu');if(submenu){const hasNestedSubmenus=submenu.querySelectorAll('.menu-item-has-children').length>0;if(hasNestedSubmenus){item.classList.add('has-mega-menu');submenu.classList.add('mega-menu');organizeMobileMegaMenu(submenu)}}});function organizeMegaMenuColumns(submenu){const menuItems=Array.from(submenu.children);const parentItems=menuItems.filter(item=>item.classList.contains('menu-item-has-children'));const regularItems=menuItems.filter(item=>!item.classList.contains('menu-item-has-children'));const megaContainer=document.createElement('div');megaContainer.className='mega-menu-container';const categoriesGrid=document.createElement('div');categoriesGrid.className='mega-menu-categories';parentItems.forEach(function(parentItem){const categoryWrapper=document.createElement('div');categoryWrapper.className='mega-menu-category';const parentClone=parentItem.cloneNode(!0);categoryWrapper.appendChild(parentClone);categoriesGrid.appendChild(categoryWrapper)});if(regularItems.length>0){const servicesCategoryWrapper=document.createElement('div');servicesCategoryWrapper.className='mega-menu-category';const servicesTitle=document.createElement('div');servicesTitle.className='menu-item-has-children';servicesTitle.innerHTML='<a href="/services" class="mega-menu-services-title">Additional Services</a><ul class="sub-menu"></ul>';const servicesList=servicesTitle.querySelector('.sub-menu');regularItems.forEach(function(regularItem){const serviceClone=regularItem.cloneNode(!0);servicesList.appendChild(serviceClone)});servicesCategoryWrapper.appendChild(servicesTitle);categoriesGrid.appendChild(servicesCategoryWrapper)}
+megaContainer.appendChild(categoriesGrid);submenu.innerHTML='';submenu.appendChild(megaContainer)}
+function organizeMobileMegaMenu(submenu){const menuItems=Array.from(submenu.children);const mobileContainer=document.createElement('div');mobileContainer.className='mega-menu-container';const mobileCategories=document.createElement('div');mobileCategories.className='mega-menu-categories';menuItems.forEach(function(item){if(item.classList.contains('menu-item-has-children')){const categoryWrapper=document.createElement('div');categoryWrapper.className='mega-menu-category';const itemClone=item.cloneNode(!0);categoryWrapper.appendChild(itemClone);mobileCategories.appendChild(categoryWrapper)}});mobileContainer.appendChild(mobileCategories);submenu.innerHTML='';submenu.appendChild(mobileContainer)}
+const accordionHeaders=document.querySelectorAll('.accordion-header');accordionHeaders.forEach(function(header,index){const accordion=header.closest('.category-accordion');const content=accordion.querySelector('.accordion-content');const arrow=header.querySelector('.accordion-arrow');if(index===0){header.classList.add('active');header.setAttribute('aria-expanded','true');content.classList.add('active')}else{header.setAttribute('aria-expanded','false')}
+header.addEventListener('click',function(){const isActive=header.classList.contains('active');accordionHeaders.forEach(function(otherHeader){const otherAccordion=otherHeader.closest('.category-accordion');const otherContent=otherAccordion.querySelector('.accordion-content');if(otherHeader!==header){otherHeader.classList.remove('active');otherHeader.setAttribute('aria-expanded','false');otherContent.classList.remove('active')}});if(!isActive){header.classList.add('active');header.setAttribute('aria-expanded','true');content.classList.add('active')}else{header.classList.remove('active');header.setAttribute('aria-expanded','false');content.classList.remove('active')}});header.addEventListener('keydown',function(event){if(event.key==='Enter'||event.key===' '){event.preventDefault();header.click()}})})})
