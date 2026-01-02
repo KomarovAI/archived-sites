@@ -21,80 +21,9 @@
   <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><![endif]-->
   
   <script data-cfasync="false" data-no-defer="1" data-no-minify="1" data-no-optimize="1">
-    var ewww_webp_supported=!1;
-    function check_webp_feature(A,e){
-      var w;
-      e=void 0!==e?e:function(){};
-      ewww_webp_supported?e(ewww_webp_supported):((w=new Image).onload=function(){ewww_webp_supported=0<w.width&&0<w.height,e&&e(ewww_webp_supported)},w.onerror=function(){e&&e(!1)},w.src="data:image/webp;base64,"+{alpha:"UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAARBxAR/Q9ERP8DAABWUDggGAAAABQBAJ0BKgEAAQAAAP4AAA3AAP7mtQAAAA=="}[A])}
-      check_webp_feature("alpha");
-    </script>
-  
-  <!-- CRITICAL CSS - Inline in head for fast rendering -->
-  <style>
-    *,*:before,*:after{border-width:0;-webkit-box-sizing:border-box;box-sizing:border-box}
-    html{font-size:62.5%}
-    body{width:100%;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeSpeed;scroll-behavior:smooth;position:relative}
-    html,body,h1,h2,h3,h4,h5,h6{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}
-    h1,h2,h3,h4,h5,h6{color:#191919;line-height:1.5;letter-spacing:.25px;text-decoration:none;font-family:"Maven Pro",sans-serif}
-    h1{font-size:2.6rem;font-weight:300}
-    h2{font-size:2rem;font-weight:600}
-    h3{font-size:1.8rem;font-weight:500}
-    p,li,ul,ol{font-family:"Noto Serif",serif;font-size:1.2rem;letter-spacing:.5px;line-height:1.5;font-weight:200;color:#868689}
-    a{text-decoration:none;color:#868689}
-    .nav-area{display:block;position:fixed;top:0;left:0;width:100%;height:110px;background-color:#fff;border-bottom:1px solid #f6f6f6;z-index:9999;-webkit-transition:ease .2s;transition:ease .2s}
-    .header-block{height:70px;display:table}
-    .header-left{display:table;float:left}
-    .logo{max-width:140px;padding:10px 0}
-    .logo a{display:table-cell;vertical-align:middle;height:inherit;text-decoration:none}
-    .logo img{display:block;max-width:100%;width:auto;height:auto;margin:0}
-    .nav-menu{display:none}
-    @media (min-width:1025px){
-      .nav-area{height:90px}
-      .header-block{height:90px}
-      .nav-menu{display:block;float:right;height:90px}
-      .nav-menu ul{height:inherit;text-align:center;width:100%;margin-bottom:0}
-      .nav-menu ul li{list-style-type:none;display:table;height:90px;float:left;text-align:left}
-      .nav-menu ul li a{display:table-cell;vertical-align:middle;font-family:"Maven Pro",sans-serif;color:#121212;text-decoration:none;font-size:1.2rem;letter-spacing:.5px;line-height:1.5;font-weight:600;padding:0 15px;text-transform:uppercase}
-      .nav-menu ul#menu-primary-1>li:last-child{background-color:#8cc63f}
-      .nav-menu ul#menu-primary-1>li:last-child a{color:#fff;font-weight:200;letter-spacing:1px}
-    }
-    .hamburger{display:inline-block;cursor:pointer;-webkit-transition-property:opacity,-webkit-filter;transition-property:opacity,-webkit-filter;-webkit-transition-duration:.15s;transition-duration:.15s;-webkit-transition-timing-function:linear;transition-timing-function:linear;font:inherit;color:inherit;text-transform:none;background-color:transparent;border:0;margin:0;padding:0;overflow:visible}
-    .hamburger-box{width:30px;height:24px;display:inline-block;position:relative}
-    .hamburger-inner{display:block;top:50%;margin-top:-2px;width:30px;height:4px;background-color:#121212;border-radius:4px;position:absolute;right:0}
-    .hamburger-inner,.hamburger-inner:before,.hamburger-inner:after{-webkit-transition-property:-webkit-transform;transition-property:-webkit-transform;-webkit-transition-duration:.15s;transition-duration:.15s;-webkit-transition-timing-function:ease;transition-timing-function:ease}
-    .hamburger-inner:before,.hamburger-inner:after{content:"";display:block;width:30px;height:4px;background-color:#121212;border-radius:4px;position:absolute;right:0}
-    .hamburger-inner:before{top:-10px}
-    .hamburger-inner:after{bottom:-10px}
-    .wrapper{width:90%;margin:0 auto;position:relative}
-    .row{width:100%;-webkit-box-sizing:border-box;box-sizing:border-box;position:relative}
-    .row .col{width:100%;float:left;height:auto;display:block;vertical-align:top;-webkit-box-sizing:border-box;box-sizing:border-box;position:relative}
-    .primary-500{color:#29abe2}
-    .bg-primary-500{background-color:#29abe2}
-    .bg-white-900{background-color:#fff}
-    .bg-light-grey{background-color:#f5f5f5}
-    .m0{margin:0}
-    .text-center{text-align:center}
-    .text-left{text-align:left}
-    .overflow-hide{overflow:hidden}
-    .admin-bar .nav-area,.admin-bar .mobile-nav,.admin-bar .fixed-burger{margin-top:46px}
-    #wpadminbar{position:fixed}
-    .hero-section{margin-top:110px;padding:60px 20px;background:#f5f5f5;text-align:center}
-    .hero-section h1{margin-bottom:20px}
-    .hero-section p{margin-bottom:30px}
-    .hero-btn{display:inline-block;padding:12px 30px;background:#8cc63f;color:#fff;border-radius:5px;font-weight:600}
-    .hero-btn:hover{background:#7ab82e}
-    @media (min-width:783px){
-      .admin-bar .nav-area,.admin-bar .fixed-burger{margin-top:32px}
-    }
-  </style>
-  
-  <!-- Preload Main CSS -->
-  <link rel="preload" href="main.css" as="style">
-  
-  <!-- Main CSS - Load asynchronously -->
-  <link rel="stylesheet" href="main.css" media="print" onload="this.media='all'; this.onload=null;">
-  <noscript><link rel="stylesheet" href="main.css"></noscript>
-  
+    var ewww_webp_supported=!1;function check_webp_feature(A,e){var w;e=void 0!==e?e:function(){};ewww_webp_supported?e(ewww_webp_supported):((w=new Image).onload=function(){ewww_webp_supported=0<w.width&&0<w.height,e&&e(ewww_webp_supported)},w.onerror=function(){e&&e(!1)},w.src="data:image/webp;base64,"+{alpha:"UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAARBxAR/Q9ERP8DAABWUDggGAAAABQBAJ0BKgEAAQAAAP4AAA3AAP7mtQAAAA=="}[A])}check_webp_feature("alpha");
+  </script>
+  <style>*,*:before,*:after{border-width:0;-webkit-box-sizing:border-box;box-sizing:border-box}html{font-size:62.5%}body{width:100%;height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeSpeed;scroll-behavior:smooth;position:relative;top:110px}html,body,h1,h2,h3,h4,h5,h6{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}h1,h2,h3,h4,h5,h6{color:#191919;line-height:1.5;letter-spacing:.25px;text-decoration:none;font-family:"Maven Pro",sans-serif}h1{font-size:2.6rem;font-weight:300}h2{font-size:2rem;font-weight:600}h3{font-size:1.8rem;font-weight:500}p,li,ul,ol{font-family:"Noto Serif",serif;font-size:1.2rem;letter-spacing:.5px;line-height:1.5;font-weight:200;color:#868689}a{text-decoration:none;color:#868689}.nav-area{display:block;position:fixed;top:0;left:0;width:100%;height:110px;background-color:#fff;border-bottom:1px solid #f6f6f6;z-index:9999;-webkit-transition:ease .2s;transition:ease .2s}.header-block{height:70px;display:table}.header-left{display:table;float:left}.logo{max-width:140px}.logo a{display:table-cell;vertical-align:middle;height:inherit;text-decoration:none}.logo img{display:block;max-width:100%;width:auto;height:auto;margin:0}.nav-menu{display:none}@media (min-width:1025px){.nav-area{height:90px}.header-block{height:90px}.nav-menu{display:block;float:right;height:90px}.nav-menu ul{height:inherit;text-align:center;width:100%;margin-bottom:0}.nav-menu ul li{list-style-type:none;display:table;height:90px;float:left;text-align:left}.nav-menu ul li a{display:table-cell;vertical-align:middle;font-family:"Maven Pro",sans-serif;color:#121212;text-decoration:none;font-size:1.2rem;letter-spacing:.5px;line-height:1.5;font-weight:600;padding:0 15px;text-transform:uppercase}.nav-menu ul#menu-primary-1>li:last-child{background-color:#8cc63f}.nav-menu ul#menu-primary-1>li:last-child a{color:#fff;font-weight:200;letter-spacing:1px}}.hamburger{display:inline-block;cursor:pointer;-webkit-transition-property:opacity,-webkit-filter;transition-property:opacity,-webkit-filter;-webkit-transition-duration:.15s;transition-duration:.15s;-webkit-transition-timing-function:linear;transition-timing-function:linear;font:inherit;color:inherit;text-transform:none;background-color:transparent;border:0;margin:0;padding:0;overflow:visible}.hamburger-box{width:30px;height:24px;display:inline-block;position:relative}.hamburger-inner{display:block;top:50%;margin-top:-2px;width:30px;height:4px;background-color:#121212;border-radius:4px;position:absolute;right:0}.hamburger-inner,.hamburger-inner:before,.hamburger-inner:after{-webkit-transition-property:-webkit-transform;transition-property:-webkit-transform;-webkit-transition-duration:.15s;transition-duration:.15s;-webkit-transition-timing-function:ease;transition-timing-function:ease}.hamburger-inner:before,.hamburger-inner:after{content:"";display:block;width:30px;height:4px;background-color:#121212;border-radius:4px;position:absolute;right:0}.hamburger-inner:before{top:-10px}.hamburger-inner:after{bottom:-10px}.wrapper{width:90%;margin:0 auto;position:relative}.row{width:100%;-webkit-box-sizing:border-box;box-sizing:border-box;position:relative}.row .col{width:100%;float:left;height:auto;display:block;vertical-align:top;-webkit-box-sizing:border-box;box-sizing:border-box;position:relative}.primary-500{color:#29abe2}.bg-primary-500{background-color:#29abe2}.bg-white-900{background-color:#fff}.bg-light-grey{background-color:#f5f5f5}.m0{margin:0}.text-center{text-align:center}.text-left{text-align:left}.overflow-hide{overflow:hidden}.admin-bar .nav-area,.admin-bar .mobile-nav,.admin-bar .fixed-burger{margin-top:46px}#wpadminbar{position:fixed}@media (min-width:783px){.admin-bar .nav-area,.admin-bar .fixed-burger{margin-top:32px}}</style>
   <title>Commercial Catering Engineers - CaterKit Services</title>
   <meta content="We're commercial catering equipment experts, specialising in emergency breakdowns, servicing, maintenance, sales and installation." name="description"/>
   <link href="index.html" rel="canonical"/>
@@ -117,104 +46,60 @@
   <meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="nav-area">
-    <div class="wrapper">
+  <nav class="nav-area" style="top: 0;">
+    <div class="wrapper" style="height: 100%;">
       <div class="header-block">
         <div class="header-left">
           <div class="logo">
-            <a href="#">
-              <img src="wp-content/themes/bloc/assets/images/logo.png" alt="CaterKit Services">
-            </a>
+            <a href="/"><img alt="CaterKit Services" src="/images/logo.png"/></a>
           </div>
         </div>
-        <div class="nav-menu">
+        <nav class="nav-menu"> 
           <ul id="menu-primary-1">
             <li><a href="#services">Services</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#book">Book Now</a></li>
+            <li><a href="https://www.caterkitservices.com">Visit Site</a></li>
           </ul>
-        </div>
+        </nav>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero-section">
+  <div style="margin-top: 130px; padding: 40px 20px;">
     <div class="wrapper">
-      <h1>Commercial Catering Equipment Experts</h1>
-      <p>Emergency breakdowns, servicing, maintenance, sales and installation</p>
-      <p>Book online, 24 hours a day, 7 days a week, from £156</p>
-      <a href="#book" class="hero-btn">Book Your Service</a>
-    </div>
-  </section>
+      <div class="row">
+        <div class="col">
+          <h1 style="text-align: center; margin-bottom: 30px;">Commercial Catering Equipment Experts</h1>
+          <p style="text-align: center; font-size: 1.4rem; margin-bottom: 40px;">Emergency breakdowns • Servicing • Maintenance • Sales • Installation</p>
+          
+          <div style="background: #f5f5f5; padding: 40px; border-radius: 8px; margin-bottom: 40px;">
+            <h2 style="text-align: center; margin-bottom: 20px;">Our Services</h2>
+            <ul style="max-width: 600px; margin: 0 auto;">
+              <li style="margin-bottom: 15px;">24/7 Emergency Breakdown Call-outs</li>
+              <li style="margin-bottom: 15px;">Preventative Maintenance Contracts</li>
+              <li style="margin-bottom: 15px;">Equipment Servicing & Repairs</li>
+              <li style="margin-bottom: 15px;">New Equipment Sales</li>
+              <li style="margin-bottom: 15px;">Professional Installation Services</li>
+            </ul>
+          </div>
 
-  <!-- Content -->
-  <section id="services" class="wrapper">
-    <div class="row" style="padding: 60px 0;">
-      <div class="col" style="margin: 20px 0;">
-        <h2>Our Services</h2>
-        <p>We specialise in providing comprehensive catering equipment solutions:</p>
-        <ul style="margin: 20px 0;">
-          <li>Emergency breakdown call-outs</li>
-          <li>Preventative maintenance</li>
-          <li>Equipment servicing</li>
-          <li>Equipment sales</li>
-          <li>Installation services</li>
-        </ul>
+          <div style="text-align: center;">
+            <p style="font-size: 1.3rem; margin-bottom: 20px;"><strong>Book online from £156</strong></p>
+            <p style="margin-bottom: 30px;">No more phone calls. No more emails. Upfront pricing. Simple. Honest.</p>
+            <a href="https://www.caterkitservices.com/book" style="display: inline-block; padding: 15px 40px; background: #8cc63f; color: white; font-size: 1.1rem; border-radius: 5px; text-decoration: none; font-weight: bold;">Book Now</a>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- About -->
-  <section id="about" class="wrapper bg-light-grey" style="padding: 60px 0; background: #f5f5f5;">
-    <div class="row">
-      <div class="col" style="margin: 20px 0;">
-        <h2>Why Choose Us?</h2>
-        <p>With years of experience in the commercial catering industry, we provide:</p>
-        <ul style="margin: 20px 0;">
-          <li>Fast response times for emergency breakdowns</li>
-          <li>Expert technicians</li>
-          <li>Competitive pricing</li>
-          <li>Upfront quotes with no hidden fees</li>
-          <li>Online booking available 24/7</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="wrapper">
-    <div class="row" style="padding: 60px 0;">
-      <div class="col" style="margin: 20px 0; text-align: center;">
-        <h2>Get in Touch</h2>
-        <p>No more phone calls. No more emails.</p>
-        <p>Book your catering equipment breakdown callout at a time that suits you, anytime, anywhere, with upfront pricing.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Book -->
-  <section id="book" class="wrapper" style="padding: 60px 0; background: #f5f5f5; margin: 0 -50%; width: 200%;">
-    <div class="row" style="text-align: center;">
-      <div class="col">
-        <h2>Ready to Book?</h2>
-        <p>Our online booking system is available 24/7</p>
-        <a href="https://www.caterkitservices.com/book" class="hero-btn" target="_blank">Book Your Service Now</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer style="background: #191919; color: #fff; padding: 40px 0; text-align: center; margin-top: 60px;">
+  <footer style="background: #1a1a1a; color: #fff; padding: 40px 20px; margin-top: 60px;">
     <div class="wrapper">
-      <p>&copy; 2026 CaterKit Services. All rights reserved.</p>
-      <p>Commercial catering equipment experts</p>
+      <p style="text-align: center; margin: 0;">&copy; 2026 CaterKit Services. All rights reserved.</p>
+      <p style="text-align: center; margin: 10px 0 0 0; font-size: 0.9rem; color: #999;">Commercial catering equipment specialists</p>
     </div>
   </footer>
   
-  <!-- Google Analytics -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K6HJ88S" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </body>
 </html>
