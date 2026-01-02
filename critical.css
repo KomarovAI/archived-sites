@@ -1,0 +1,70 @@
+/* Critical CSS - Inline in <head> for faster rendering */
+/* Only styles visible without scrolling */
+
+/* Reset & Base */
+*,*:before,*:after{border-width:0;-webkit-box-sizing:border-box;box-sizing:border-box}
+html{font-size:62.5%}
+body{width:100%;height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeSpeed;scroll-behavior:smooth;position:relative;top:110px}
+
+/* Typography */
+html,body,h1,h2,h3,h4,h5,h6{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}
+h1,h2,h3,h4,h5,h6{color:#191919;line-height:1.5;letter-spacing:.25px;text-decoration:none;font-family:"Maven Pro",sans-serif}
+h1{font-size:2.6rem;font-weight:300}
+h2{font-size:2rem;font-weight:600}
+h3{font-size:1.8rem;font-weight:500}
+p,li,ul,ol{font-family:"Noto Serif",serif;font-size:1.2rem;letter-spacing:.5px;line-height:1.5;font-weight:200;color:#868689}
+a{text-decoration:none;color:#868689}
+
+/* Navigation */
+.nav-area{display:block;position:fixed;top:0;left:0;width:100%;height:110px;background-color:#fff;border-bottom:1px solid #f6f6f6;z-index:9999;-webkit-transition:ease .2s;transition:ease .2s}
+.header-block{height:70px;display:table}
+.header-left{display:table;float:left}
+.logo{max-width:140px}
+.logo a{display:table-cell;vertical-align:middle;height:inherit;text-decoration:none}
+.logo img{display:block;max-width:100%;width:auto;height:auto;margin:0}
+
+/* Navigation Menu - Desktop */
+.nav-menu{display:none}
+@media (min-width:1025px){
+  .nav-area{height:90px}
+  .header-block{height:90px}
+  .nav-menu{display:block;float:right;height:90px}
+  .nav-menu ul{height:inherit;text-align:center;width:100%;margin-bottom:0}
+  .nav-menu ul li{list-style-type:none;display:table;height:90px;float:left;text-align:left}
+  .nav-menu ul li a{display:table-cell;vertical-align:middle;font-family:"Maven Pro",sans-serif;color:#121212;text-decoration:none;font-size:1.2rem;letter-spacing:.5px;line-height:1.5;font-weight:600;padding:0 15px;text-transform:uppercase}
+  .nav-menu ul#menu-primary-1>li:last-child{background-color:#8cc63f}
+  .nav-menu ul#menu-primary-1>li:last-child a{color:#fff;font-weight:200;letter-spacing:1px}
+}
+
+/* Hamburger Menu */
+.hamburger{display:inline-block;cursor:pointer;-webkit-transition-property:opacity,-webkit-filter;transition-property:opacity,-webkit-filter;transition-property:opacity,filter;-webkit-transition-duration:.15s;transition-duration:.15s;-webkit-transition-timing-function:linear;transition-timing-function:linear;font:inherit;color:inherit;text-transform:none;background-color:transparent;border:0;margin:0;padding:0;overflow:visible}
+.hamburger-box{width:30px;height:24px;display:inline-block;position:relative}
+.hamburger-inner{display:block;top:50%;margin-top:-2px;width:30px;height:4px;background-color:#121212;border-radius:4px;position:absolute;right:0}
+.hamburger-inner,.hamburger-inner:before,.hamburger-inner:after{-webkit-transition-property:-webkit-transform;transition-property:-webkit-transform;transition-property:transform;-webkit-transition-duration:.15s;transition-duration:.15s;-webkit-transition-timing-function:ease;transition-timing-function:ease}
+.hamburger-inner:before,.hamburger-inner:after{content:"";display:block;width:30px;height:4px;background-color:#121212;border-radius:4px;position:absolute;right:0}
+.hamburger-inner:before{top:-10px}
+.hamburger-inner:after{bottom:-10px}
+
+/* Grid System - Essential */
+.wrapper{width:90%;margin:0 auto;position:relative}
+.row{width:100%;-webkit-box-sizing:border-box;box-sizing:border-box;position:relative}
+.row .col{width:100%;float:left;height:auto;display:block;vertical-align:top;-webkit-box-sizing:border-box;box-sizing:border-box;position:relative}
+
+/* Colors */
+.primary-500{color:#29abe2}
+.bg-primary-500{background-color:#29abe2}
+.bg-white-900{background-color:#fff}
+.bg-light-grey{background-color:#f5f5f5}
+
+/* Utility */
+.m0{margin:0}
+.text-center{text-align:center}
+.text-left{text-align:left}
+.overflow-hide{overflow:hidden}
+
+/* Admin bar offset */
+.admin-bar .nav-area,.admin-bar .mobile-nav,.admin-bar .fixed-burger{margin-top:46px}
+#wpadminbar{position:fixed}
+@media (min-width:783px){
+  .admin-bar .nav-area,.admin-bar .fixed-burger{margin-top:32px}
+}
