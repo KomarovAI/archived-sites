@@ -6,21 +6,6 @@
   },
   {
     "source": "book-a-callout/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/book-a-callout/wp-json"
-  },
-  {
-    "source": "book-a-callout/index.html",
-    "link": "./wp-json/wp/v2/pages/20.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/book-a-callout/wp-json/wp/v2/pages/20.html"
-  },
-  {
-    "source": "book-a-callout/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fbook-a-callout",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/book-a-callout/wp-json/oembed/1.0/embed.html"
-  },
-  {
-    "source": "book-a-callout/index.html",
     "link": "./wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/book-a-callout/wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png"
   },
@@ -168,21 +153,6 @@
     "source": "booking-faqs/index.html",
     "link": "./booking-faqs/feed.html",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/booking-faqs/booking-faqs/feed.html"
-  },
-  {
-    "source": "booking-faqs/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/booking-faqs/wp-json"
-  },
-  {
-    "source": "booking-faqs/index.html",
-    "link": "./wp-json/wp/v2/pages/2110.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/booking-faqs/wp-json/wp/v2/pages/2110.html"
-  },
-  {
-    "source": "booking-faqs/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fbooking-faqs",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/booking-faqs/wp-json/oembed/1.0/embed.html"
   },
   {
     "source": "booking-faqs/index.html",
@@ -341,21 +311,6 @@
   },
   {
     "source": "callout-guarantee/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/callout-guarantee/wp-json"
-  },
-  {
-    "source": "callout-guarantee/index.html",
-    "link": "./wp-json/wp/v2/pages/1068.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/callout-guarantee/wp-json/wp/v2/pages/1068.html"
-  },
-  {
-    "source": "callout-guarantee/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fcallout-guarantee",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/callout-guarantee/wp-json/oembed/1.0/embed.html"
-  },
-  {
-    "source": "callout-guarantee/index.html",
     "link": "./wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/callout-guarantee/wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png"
   },
@@ -508,21 +463,6 @@
     "source": "category/insights/index.html",
     "link": "./category/insights/feed.html",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/category/insights/category/insights/feed.html"
-  },
-  {
-    "source": "category/insights/index.html",
-    "link": "../wp-content/plugins/cleantalk-spam-protect/js/apbct-public-bundle_gathering.min.js",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/category/wp-content/plugins/cleantalk-spam-protect/js/apbct-public-bundle_gathering.min.js"
-  },
-  {
-    "source": "category/insights/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/category/insights/wp-json"
-  },
-  {
-    "source": "category/insights/index.html",
-    "link": "./wp-json/wp/v2/categories/6.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/category/insights/wp-json/wp/v2/categories/6.html"
   },
   {
     "source": "category/insights/index.html",
@@ -756,21 +696,6 @@
   },
   {
     "source": "category/insights/index.html",
-    "link": "../wp-content/plugins/ewww-image-optimizer/includes/lazysizes.min.js",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/category/wp-content/plugins/ewww-image-optimizer/includes/lazysizes.min.js"
-  },
-  {
-    "source": "category/insights/index.html",
-    "link": "../wp-includes/js/dist/hooks.min.js",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/category/wp-includes/js/dist/hooks.min.js"
-  },
-  {
-    "source": "category/insights/index.html",
-    "link": "../wp-includes/js/dist/i18n.min.js",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/category/wp-includes/js/dist/i18n.min.js"
-  },
-  {
-    "source": "category/insights/index.html",
     "link": "../wp-content/themes/bloc/assets/js/apps.min.js",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/category/wp-content/themes/bloc/assets/js/apps.min.js"
   },
@@ -783,16 +708,6 @@
     "source": "category/news/index.html",
     "link": "./category/news/feed.html",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/category/news/category/news/feed.html"
-  },
-  {
-    "source": "category/news/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/category/news/wp-json"
-  },
-  {
-    "source": "category/news/index.html",
-    "link": "./wp-json/wp/v2/categories/5.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/category/news/wp-json/wp/v2/categories/5.html"
   },
   {
     "source": "category/news/index.html",
@@ -1026,21 +941,6 @@
   },
   {
     "source": "catering-gas-engineer/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/catering-gas-engineer/wp-json"
-  },
-  {
-    "source": "catering-gas-engineer/index.html",
-    "link": "./wp-json/wp/v2/pages/1835.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/catering-gas-engineer/wp-json/wp/v2/pages/1835.html"
-  },
-  {
-    "source": "catering-gas-engineer/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fcatering-gas-engineer",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/catering-gas-engineer/wp-json/oembed/1.0/embed.html"
-  },
-  {
-    "source": "catering-gas-engineer/index.html",
     "link": "./wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/catering-gas-engineer/wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png"
   },
@@ -1191,21 +1091,6 @@
   },
   {
     "source": "contact/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/contact/wp-json"
-  },
-  {
-    "source": "contact/index.html",
-    "link": "./wp-json/wp/v2/pages/22.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/contact/wp-json/wp/v2/pages/22.html"
-  },
-  {
-    "source": "contact/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fcontact",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/contact/wp-json/oembed/1.0/embed.html"
-  },
-  {
-    "source": "contact/index.html",
     "link": "./wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/contact/wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png"
   },
@@ -1346,21 +1231,6 @@
   },
   {
     "source": "cookie-privacy-policy/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/cookie-privacy-policy/wp-json"
-  },
-  {
-    "source": "cookie-privacy-policy/index.html",
-    "link": "./wp-json/wp/v2/pages/3.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/cookie-privacy-policy/wp-json/wp/v2/pages/3.html"
-  },
-  {
-    "source": "cookie-privacy-policy/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fcookie-privacy-policy",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/cookie-privacy-policy/wp-json/oembed/1.0/embed.html"
-  },
-  {
-    "source": "cookie-privacy-policy/index.html",
     "link": "./wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/cookie-privacy-policy/wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png"
   },
@@ -1493,21 +1363,6 @@
     "source": "equipment/index.html",
     "link": "equipment.html",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/equipment/equipment.html"
-  },
-  {
-    "source": "equipment/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/equipment/wp-json"
-  },
-  {
-    "source": "equipment/index.html",
-    "link": "./wp-json/wp/v2/pages/18.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/equipment/wp-json/wp/v2/pages/18.html"
-  },
-  {
-    "source": "equipment/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fequipment",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/equipment/wp-json/oembed/1.0/embed.html"
   },
   {
     "source": "equipment/index.html",
@@ -1726,21 +1581,6 @@
   },
   {
     "source": "index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/wp-json"
-  },
-  {
-    "source": "index.html",
-    "link": "./wp-json/wp/v2/pages/15.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/wp-json/wp/v2/pages/15.html"
-  },
-  {
-    "source": "index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2F",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/wp-json/oembed/1.0/embed.html"
-  },
-  {
-    "source": "index.html",
     "link": "./wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png"
   },
@@ -1888,26 +1728,6 @@
     "source": "news/calling-a-commercial-catering-engineer/index.html",
     "link": "calling-a-commercial-catering-engineer.html",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/calling-a-commercial-catering-engineer/calling-a-commercial-catering-engineer.html"
-  },
-  {
-    "source": "news/calling-a-commercial-catering-engineer/index.html",
-    "link": "../wp-content/plugins/cleantalk-spam-protect/js/apbct-public-bundle_gathering.min.js",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/wp-content/plugins/cleantalk-spam-protect/js/apbct-public-bundle_gathering.min.js"
-  },
-  {
-    "source": "news/calling-a-commercial-catering-engineer/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/calling-a-commercial-catering-engineer/wp-json"
-  },
-  {
-    "source": "news/calling-a-commercial-catering-engineer/index.html",
-    "link": "./wp-json/wp/v2/posts/2966.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/calling-a-commercial-catering-engineer/wp-json/wp/v2/posts/2966.html"
-  },
-  {
-    "source": "news/calling-a-commercial-catering-engineer/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fnews%2Fcalling-a-commercial-catering-engineer",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/calling-a-commercial-catering-engineer/wp-json/oembed/1.0/embed.html"
   },
   {
     "source": "news/calling-a-commercial-catering-engineer/index.html",
@@ -2101,21 +1921,6 @@
   },
   {
     "source": "news/calling-a-commercial-catering-engineer/index.html",
-    "link": "../wp-content/plugins/ewww-image-optimizer/includes/lazysizes.min.js",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/wp-content/plugins/ewww-image-optimizer/includes/lazysizes.min.js"
-  },
-  {
-    "source": "news/calling-a-commercial-catering-engineer/index.html",
-    "link": "../wp-includes/js/dist/hooks.min.js",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/wp-includes/js/dist/hooks.min.js"
-  },
-  {
-    "source": "news/calling-a-commercial-catering-engineer/index.html",
-    "link": "../wp-includes/js/dist/i18n.min.js",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/wp-includes/js/dist/i18n.min.js"
-  },
-  {
-    "source": "news/calling-a-commercial-catering-engineer/index.html",
     "link": "../wp-content/themes/bloc/assets/js/apps.min.js",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/wp-content/themes/bloc/assets/js/apps.min.js"
   },
@@ -2123,21 +1928,6 @@
     "source": "news/christmas-opening-hours-2025/index.html",
     "link": "christmas-opening-hours-2025.html",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/christmas-opening-hours-2025/christmas-opening-hours-2025.html"
-  },
-  {
-    "source": "news/christmas-opening-hours-2025/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/christmas-opening-hours-2025/wp-json"
-  },
-  {
-    "source": "news/christmas-opening-hours-2025/index.html",
-    "link": "./wp-json/wp/v2/posts/6044.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/christmas-opening-hours-2025/wp-json/wp/v2/posts/6044.html"
-  },
-  {
-    "source": "news/christmas-opening-hours-2025/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fnews%2Fchristmas-opening-hours-2025",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/christmas-opening-hours-2025/wp-json/oembed/1.0/embed.html"
   },
   {
     "source": "news/christmas-opening-hours-2025/index.html",
@@ -2298,21 +2088,6 @@
     "source": "news/commercial-kitchen-shut-down-tips/index.html",
     "link": "commercial-kitchen-shut-down-tips.html",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/commercial-kitchen-shut-down-tips/commercial-kitchen-shut-down-tips.html"
-  },
-  {
-    "source": "news/commercial-kitchen-shut-down-tips/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/commercial-kitchen-shut-down-tips/wp-json"
-  },
-  {
-    "source": "news/commercial-kitchen-shut-down-tips/index.html",
-    "link": "./wp-json/wp/v2/posts/1722.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/commercial-kitchen-shut-down-tips/wp-json/wp/v2/posts/1722.html"
-  },
-  {
-    "source": "news/commercial-kitchen-shut-down-tips/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fnews%2Fcommercial-kitchen-shut-down-tips",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/commercial-kitchen-shut-down-tips/wp-json/oembed/1.0/embed.html"
   },
   {
     "source": "news/commercial-kitchen-shut-down-tips/index.html",
@@ -2481,21 +2256,6 @@
   },
   {
     "source": "news/coronavirus-statement/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/coronavirus-statement/wp-json"
-  },
-  {
-    "source": "news/coronavirus-statement/index.html",
-    "link": "./wp-json/wp/v2/posts/892.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/coronavirus-statement/wp-json/wp/v2/posts/892.html"
-  },
-  {
-    "source": "news/coronavirus-statement/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fnews%2Fcoronavirus-statement",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/coronavirus-statement/wp-json/oembed/1.0/embed.html"
-  },
-  {
-    "source": "news/coronavirus-statement/index.html",
     "link": "./wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/coronavirus-statement/wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png"
   },
@@ -2656,21 +2416,6 @@
   },
   {
     "source": "news/happy-christmas-from-caterkit-opening-hours-2021/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/happy-christmas-from-caterkit-opening-hours-2021/wp-json"
-  },
-  {
-    "source": "news/happy-christmas-from-caterkit-opening-hours-2021/index.html",
-    "link": "./wp-json/wp/v2/posts/2933.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/happy-christmas-from-caterkit-opening-hours-2021/wp-json/wp/v2/posts/2933.html"
-  },
-  {
-    "source": "news/happy-christmas-from-caterkit-opening-hours-2021/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fnews%2Fhappy-christmas-from-caterkit-opening-hours-2021",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/happy-christmas-from-caterkit-opening-hours-2021/wp-json/oembed/1.0/embed.html"
-  },
-  {
-    "source": "news/happy-christmas-from-caterkit-opening-hours-2021/index.html",
     "link": "./wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/happy-christmas-from-caterkit-opening-hours-2021/wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png"
   },
@@ -2821,21 +2566,6 @@
   },
   {
     "source": "news/happy-christmas-opening-times-2020/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/happy-christmas-opening-times-2020/wp-json"
-  },
-  {
-    "source": "news/happy-christmas-opening-times-2020/index.html",
-    "link": "./wp-json/wp/v2/posts/1932.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/happy-christmas-opening-times-2020/wp-json/wp/v2/posts/1932.html"
-  },
-  {
-    "source": "news/happy-christmas-opening-times-2020/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fnews%2Fhappy-christmas-opening-times-2020",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/happy-christmas-opening-times-2020/wp-json/oembed/1.0/embed.html"
-  },
-  {
-    "source": "news/happy-christmas-opening-times-2020/index.html",
     "link": "./wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/happy-christmas-opening-times-2020/wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png"
   },
@@ -2983,21 +2713,6 @@
     "source": "news/how-to-choose-a-commercial-catering-equipment-repair-company/index.html",
     "link": "how-to-choose-a-commercial-catering-equipment-repair-company.html",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/how-to-choose-a-commercial-catering-equipment-repair-company/how-to-choose-a-commercial-catering-equipment-repair-company.html"
-  },
-  {
-    "source": "news/how-to-choose-a-commercial-catering-equipment-repair-company/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/how-to-choose-a-commercial-catering-equipment-repair-company/wp-json"
-  },
-  {
-    "source": "news/how-to-choose-a-commercial-catering-equipment-repair-company/index.html",
-    "link": "./wp-json/wp/v2/posts/2881.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/how-to-choose-a-commercial-catering-equipment-repair-company/wp-json/wp/v2/posts/2881.html"
-  },
-  {
-    "source": "news/how-to-choose-a-commercial-catering-equipment-repair-company/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fnews%2Fhow-to-choose-a-commercial-catering-equipment-repair-company",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/how-to-choose-a-commercial-catering-equipment-repair-company/wp-json/oembed/1.0/embed.html"
   },
   {
     "source": "news/how-to-choose-a-commercial-catering-equipment-repair-company/index.html",
@@ -3176,21 +2891,6 @@
   },
   {
     "source": "news/improved-booking-system-launched/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/improved-booking-system-launched/wp-json"
-  },
-  {
-    "source": "news/improved-booking-system-launched/index.html",
-    "link": "./wp-json/wp/v2/posts/2689.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/improved-booking-system-launched/wp-json/wp/v2/posts/2689.html"
-  },
-  {
-    "source": "news/improved-booking-system-launched/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fnews%2Fimproved-booking-system-launched",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/improved-booking-system-launched/wp-json/oembed/1.0/embed.html"
-  },
-  {
-    "source": "news/improved-booking-system-launched/index.html",
     "link": "./wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/improved-booking-system-launched/wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png"
   },
@@ -3351,21 +3051,6 @@
   },
   {
     "source": "news/office-closed-monday-19th-september/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/office-closed-monday-19th-september/wp-json"
-  },
-  {
-    "source": "news/office-closed-monday-19th-september/index.html",
-    "link": "./wp-json/wp/v2/posts/4248.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/office-closed-monday-19th-september/wp-json/wp/v2/posts/4248.html"
-  },
-  {
-    "source": "news/office-closed-monday-19th-september/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fnews%2Foffice-closed-monday-19th-september",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/office-closed-monday-19th-september/wp-json/oembed/1.0/embed.html"
-  },
-  {
-    "source": "news/office-closed-monday-19th-september/index.html",
     "link": "./wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/office-closed-monday-19th-september/wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png"
   },
@@ -3523,21 +3208,6 @@
     "source": "news/tips-restarting-commercial-kitchen/index.html",
     "link": "tips-restarting-commercial-kitchen.html",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/tips-restarting-commercial-kitchen/tips-restarting-commercial-kitchen.html"
-  },
-  {
-    "source": "news/tips-restarting-commercial-kitchen/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/tips-restarting-commercial-kitchen/wp-json"
-  },
-  {
-    "source": "news/tips-restarting-commercial-kitchen/index.html",
-    "link": "./wp-json/wp/v2/posts/1887.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/tips-restarting-commercial-kitchen/wp-json/wp/v2/posts/1887.html"
-  },
-  {
-    "source": "news/tips-restarting-commercial-kitchen/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fnews%2Ftips-restarting-commercial-kitchen",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news/tips-restarting-commercial-kitchen/wp-json/oembed/1.0/embed.html"
   },
   {
     "source": "news/tips-restarting-commercial-kitchen/index.html",
@@ -3728,11 +3398,6 @@
     "source": "news-insights/index.html",
     "link": "news-insights.html",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news-insights/news-insights.html"
-  },
-  {
-    "source": "news-insights/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/news-insights/wp-json"
   },
   {
     "source": "news-insights/index.html",
@@ -3978,26 +3643,6 @@
     "source": "sectors/bars-pubs/index.html",
     "link": "bars-pubs.html",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/bars-pubs/bars-pubs.html"
-  },
-  {
-    "source": "sectors/bars-pubs/index.html",
-    "link": "../wp-content/plugins/cleantalk-spam-protect/js/apbct-public-bundle_gathering.min.js",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/wp-content/plugins/cleantalk-spam-protect/js/apbct-public-bundle_gathering.min.js"
-  },
-  {
-    "source": "sectors/bars-pubs/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/bars-pubs/wp-json"
-  },
-  {
-    "source": "sectors/bars-pubs/index.html",
-    "link": "./wp-json/wp/v2/pages/46.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/bars-pubs/wp-json/wp/v2/pages/46.html"
-  },
-  {
-    "source": "sectors/bars-pubs/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fsectors%2Fbars-pubs",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/bars-pubs/wp-json/oembed/1.0/embed.html"
   },
   {
     "source": "sectors/bars-pubs/index.html",
@@ -4271,21 +3916,6 @@
   },
   {
     "source": "sectors/bars-pubs/index.html",
-    "link": "../wp-content/plugins/ewww-image-optimizer/includes/lazysizes.min.js",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/wp-content/plugins/ewww-image-optimizer/includes/lazysizes.min.js"
-  },
-  {
-    "source": "sectors/bars-pubs/index.html",
-    "link": "../wp-includes/js/dist/hooks.min.js",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/wp-includes/js/dist/hooks.min.js"
-  },
-  {
-    "source": "sectors/bars-pubs/index.html",
-    "link": "../wp-includes/js/dist/i18n.min.js",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/wp-includes/js/dist/i18n.min.js"
-  },
-  {
-    "source": "sectors/bars-pubs/index.html",
     "link": "../wp-content/themes/bloc/assets/js/apps.min.js",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/wp-content/themes/bloc/assets/js/apps.min.js"
   },
@@ -4293,21 +3923,6 @@
     "source": "sectors/cafes/index.html",
     "link": "cafes.html",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/cafes/cafes.html"
-  },
-  {
-    "source": "sectors/cafes/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/cafes/wp-json"
-  },
-  {
-    "source": "sectors/cafes/index.html",
-    "link": "./wp-json/wp/v2/pages/44.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/cafes/wp-json/wp/v2/pages/44.html"
-  },
-  {
-    "source": "sectors/cafes/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fsectors%2Fcafes",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/cafes/wp-json/oembed/1.0/embed.html"
   },
   {
     "source": "sectors/cafes/index.html",
@@ -4523,21 +4138,6 @@
     "source": "sectors/education/index.html",
     "link": "education.html",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/education/education.html"
-  },
-  {
-    "source": "sectors/education/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/education/wp-json"
-  },
-  {
-    "source": "sectors/education/index.html",
-    "link": "./wp-json/wp/v2/pages/2447.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/education/wp-json/wp/v2/pages/2447.html"
-  },
-  {
-    "source": "sectors/education/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fsectors%2Feducation",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/education/wp-json/oembed/1.0/embed.html"
   },
   {
     "source": "sectors/education/index.html",
@@ -4761,21 +4361,6 @@
   },
   {
     "source": "sectors/healthcare/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/healthcare/wp-json"
-  },
-  {
-    "source": "sectors/healthcare/index.html",
-    "link": "./wp-json/wp/v2/pages/2491.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/healthcare/wp-json/wp/v2/pages/2491.html"
-  },
-  {
-    "source": "sectors/healthcare/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fsectors%2Fhealthcare",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/healthcare/wp-json/oembed/1.0/embed.html"
-  },
-  {
-    "source": "sectors/healthcare/index.html",
     "link": "./wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/healthcare/wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png"
   },
@@ -4986,21 +4571,6 @@
   },
   {
     "source": "sectors/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/wp-json"
-  },
-  {
-    "source": "sectors/index.html",
-    "link": "./wp-json/wp/v2/pages/17.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/wp-json/wp/v2/pages/17.html"
-  },
-  {
-    "source": "sectors/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fsectors",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/wp-json/oembed/1.0/embed.html"
-  },
-  {
-    "source": "sectors/index.html",
     "link": "./wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png"
   },
@@ -5103,21 +4673,6 @@
     "source": "sectors/leisure-garden-centres/index.html",
     "link": "leisure-garden-centres.html",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/leisure-garden-centres/leisure-garden-centres.html"
-  },
-  {
-    "source": "sectors/leisure-garden-centres/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/leisure-garden-centres/wp-json"
-  },
-  {
-    "source": "sectors/leisure-garden-centres/index.html",
-    "link": "./wp-json/wp/v2/pages/52.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/leisure-garden-centres/wp-json/wp/v2/pages/52.html"
-  },
-  {
-    "source": "sectors/leisure-garden-centres/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fsectors%2Fleisure-garden-centres",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/leisure-garden-centres/wp-json/oembed/1.0/embed.html"
   },
   {
     "source": "sectors/leisure-garden-centres/index.html",
@@ -5323,21 +4878,6 @@
     "source": "sectors/restaurants/index.html",
     "link": "restaurants.html",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/restaurants/restaurants.html"
-  },
-  {
-    "source": "sectors/restaurants/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/restaurants/wp-json"
-  },
-  {
-    "source": "sectors/restaurants/index.html",
-    "link": "./wp-json/wp/v2/pages/42.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/restaurants/wp-json/wp/v2/pages/42.html"
-  },
-  {
-    "source": "sectors/restaurants/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fsectors%2Frestaurants",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/restaurants/wp-json/oembed/1.0/embed.html"
   },
   {
     "source": "sectors/restaurants/index.html",
@@ -5561,21 +5101,6 @@
   },
   {
     "source": "sectors/staff-canteens/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/staff-canteens/wp-json"
-  },
-  {
-    "source": "sectors/staff-canteens/index.html",
-    "link": "./wp-json/wp/v2/pages/2621.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/staff-canteens/wp-json/wp/v2/pages/2621.html"
-  },
-  {
-    "source": "sectors/staff-canteens/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fsectors%2Fstaff-canteens",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/staff-canteens/wp-json/oembed/1.0/embed.html"
-  },
-  {
-    "source": "sectors/staff-canteens/index.html",
     "link": "./wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/staff-canteens/wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png"
   },
@@ -5768,21 +5293,6 @@
     "source": "sectors/takeaways/index.html",
     "link": "takeaways.html",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/takeaways/takeaways.html"
-  },
-  {
-    "source": "sectors/takeaways/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/takeaways/wp-json"
-  },
-  {
-    "source": "sectors/takeaways/index.html",
-    "link": "./wp-json/wp/v2/pages/1679.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/takeaways/wp-json/wp/v2/pages/1679.html"
-  },
-  {
-    "source": "sectors/takeaways/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fsectors%2Ftakeaways",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/sectors/takeaways/wp-json/oembed/1.0/embed.html"
   },
   {
     "source": "sectors/takeaways/index.html",
@@ -6016,26 +5526,6 @@
   },
   {
     "source": "services/design-sales-installation/index.html",
-    "link": "../wp-content/plugins/cleantalk-spam-protect/js/apbct-public-bundle_gathering.min.js",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/services/wp-content/plugins/cleantalk-spam-protect/js/apbct-public-bundle_gathering.min.js"
-  },
-  {
-    "source": "services/design-sales-installation/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/services/design-sales-installation/wp-json"
-  },
-  {
-    "source": "services/design-sales-installation/index.html",
-    "link": "./wp-json/wp/v2/pages/40.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/services/design-sales-installation/wp-json/wp/v2/pages/40.html"
-  },
-  {
-    "source": "services/design-sales-installation/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fservices%2Fdesign-sales-installation",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/services/design-sales-installation/wp-json/oembed/1.0/embed.html"
-  },
-  {
-    "source": "services/design-sales-installation/index.html",
     "link": "../wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-32x32.png",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/services/wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-32x32.png"
   },
@@ -6251,21 +5741,6 @@
   },
   {
     "source": "services/design-sales-installation/index.html",
-    "link": "../wp-content/plugins/ewww-image-optimizer/includes/lazysizes.min.js",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/services/wp-content/plugins/ewww-image-optimizer/includes/lazysizes.min.js"
-  },
-  {
-    "source": "services/design-sales-installation/index.html",
-    "link": "../wp-includes/js/dist/hooks.min.js",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/services/wp-includes/js/dist/hooks.min.js"
-  },
-  {
-    "source": "services/design-sales-installation/index.html",
-    "link": "../wp-includes/js/dist/i18n.min.js",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/services/wp-includes/js/dist/i18n.min.js"
-  },
-  {
-    "source": "services/design-sales-installation/index.html",
     "link": "../wp-content/themes/bloc/assets/js/apps.min.js",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/services/wp-content/themes/bloc/assets/js/apps.min.js"
   },
@@ -6273,21 +5748,6 @@
     "source": "services/emergency-breakdowns-repairs/index.html",
     "link": "emergency-breakdowns-repairs.html",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/services/emergency-breakdowns-repairs/emergency-breakdowns-repairs.html"
-  },
-  {
-    "source": "services/emergency-breakdowns-repairs/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/services/emergency-breakdowns-repairs/wp-json"
-  },
-  {
-    "source": "services/emergency-breakdowns-repairs/index.html",
-    "link": "./wp-json/wp/v2/pages/23.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/services/emergency-breakdowns-repairs/wp-json/wp/v2/pages/23.html"
-  },
-  {
-    "source": "services/emergency-breakdowns-repairs/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fservices%2Femergency-breakdowns-repairs",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/services/emergency-breakdowns-repairs/wp-json/oembed/1.0/embed.html"
   },
   {
     "source": "services/emergency-breakdowns-repairs/index.html",
@@ -6496,21 +5956,6 @@
   },
   {
     "source": "services/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/services/wp-json"
-  },
-  {
-    "source": "services/index.html",
-    "link": "./wp-json/wp/v2/pages/16.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/services/wp-json/wp/v2/pages/16.html"
-  },
-  {
-    "source": "services/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fservices",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/services/wp-json/oembed/1.0/embed.html"
-  },
-  {
-    "source": "services/index.html",
     "link": "./wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/services/wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png"
   },
@@ -6638,21 +6083,6 @@
     "source": "services/maintenance/index.html",
     "link": "maintenance.html",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/services/maintenance/maintenance.html"
-  },
-  {
-    "source": "services/maintenance/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/services/maintenance/wp-json"
-  },
-  {
-    "source": "services/maintenance/index.html",
-    "link": "./wp-json/wp/v2/pages/24.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/services/maintenance/wp-json/wp/v2/pages/24.html"
-  },
-  {
-    "source": "services/maintenance/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fservices%2Fmaintenance",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/services/maintenance/wp-json/oembed/1.0/embed.html"
   },
   {
     "source": "services/maintenance/index.html",
@@ -6826,21 +6256,6 @@
   },
   {
     "source": "thank-you/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/thank-you/wp-json"
-  },
-  {
-    "source": "thank-you/index.html",
-    "link": "./wp-json/wp/v2/pages/1310.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/thank-you/wp-json/wp/v2/pages/1310.html"
-  },
-  {
-    "source": "thank-you/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fthank-you",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/thank-you/wp-json/oembed/1.0/embed.html"
-  },
-  {
-    "source": "thank-you/index.html",
     "link": "./wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/thank-you/wp-content/uploads/2020/09/cropped-CaterKit-Favicon-512x512-1-180x180.png"
   },
@@ -6973,21 +6388,6 @@
     "source": "website-disclaimer/index.html",
     "link": "website-disclaimer.html",
     "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/website-disclaimer/website-disclaimer.html"
-  },
-  {
-    "source": "website-disclaimer/index.html",
-    "link": "./wp-json/",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/website-disclaimer/wp-json"
-  },
-  {
-    "source": "website-disclaimer/index.html",
-    "link": "./wp-json/wp/v2/pages/13.html",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/website-disclaimer/wp-json/wp/v2/pages/13.html"
-  },
-  {
-    "source": "website-disclaimer/index.html",
-    "link": "./wp-json/oembed/1.0/embed.html?url=https%3A%2F%2Fwww.caterkitservices.com%2Fwebsite-disclaimer",
-    "target": "/home/runner/work/Deploy-page/Deploy-page/target-repo/website-disclaimer/wp-json/oembed/1.0/embed.html"
   },
   {
     "source": "website-disclaimer/index.html",
