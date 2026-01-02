@@ -33,7 +33,7 @@
   <style>
     *,*:before,*:after{border-width:0;-webkit-box-sizing:border-box;box-sizing:border-box}
     html{font-size:62.5%}
-    body{width:100%;height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeSpeed;scroll-behavior:smooth;position:relative;top:110px}
+    body{width:100%;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeSpeed;scroll-behavior:smooth;position:relative}
     html,body,h1,h2,h3,h4,h5,h6{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}
     h1,h2,h3,h4,h5,h6{color:#191919;line-height:1.5;letter-spacing:.25px;text-decoration:none;font-family:"Maven Pro",sans-serif}
     h1{font-size:2.6rem;font-weight:300}
@@ -44,7 +44,7 @@
     .nav-area{display:block;position:fixed;top:0;left:0;width:100%;height:110px;background-color:#fff;border-bottom:1px solid #f6f6f6;z-index:9999;-webkit-transition:ease .2s;transition:ease .2s}
     .header-block{height:70px;display:table}
     .header-left{display:table;float:left}
-    .logo{max-width:140px}
+    .logo{max-width:140px;padding:10px 0}
     .logo a{display:table-cell;vertical-align:middle;height:inherit;text-decoration:none}
     .logo img{display:block;max-width:100%;width:auto;height:auto;margin:0}
     .nav-menu{display:none}
@@ -78,6 +78,11 @@
     .overflow-hide{overflow:hidden}
     .admin-bar .nav-area,.admin-bar .mobile-nav,.admin-bar .fixed-burger{margin-top:46px}
     #wpadminbar{position:fixed}
+    .hero-section{margin-top:110px;padding:60px 20px;background:#f5f5f5;text-align:center}
+    .hero-section h1{margin-bottom:20px}
+    .hero-section p{margin-bottom:30px}
+    .hero-btn{display:inline-block;padding:12px 30px;background:#8cc63f;color:#fff;border-radius:5px;font-weight:600}
+    .hero-btn:hover{background:#7ab82e}
     @media (min-width:783px){
       .admin-bar .nav-area,.admin-bar .fixed-burger{margin-top:32px}
     }
@@ -112,8 +117,102 @@
   <meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
 </head>
 <body>
-  <!-- Original body content preserved -->
-  <!-- Navigation and page content here -->
+  <!-- Navigation -->
+  <nav class="nav-area">
+    <div class="wrapper">
+      <div class="header-block">
+        <div class="header-left">
+          <div class="logo">
+            <a href="#">
+              <img src="wp-content/themes/bloc/assets/images/logo.png" alt="CaterKit Services">
+            </a>
+          </div>
+        </div>
+        <div class="nav-menu">
+          <ul id="menu-primary-1">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#book">Book Now</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="wrapper">
+      <h1>Commercial Catering Equipment Experts</h1>
+      <p>Emergency breakdowns, servicing, maintenance, sales and installation</p>
+      <p>Book online, 24 hours a day, 7 days a week, from £156</p>
+      <a href="#book" class="hero-btn">Book Your Service</a>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section id="services" class="wrapper">
+    <div class="row" style="padding: 60px 0;">
+      <div class="col" style="margin: 20px 0;">
+        <h2>Our Services</h2>
+        <p>We specialise in providing comprehensive catering equipment solutions:</p>
+        <ul style="margin: 20px 0;">
+          <li>Emergency breakdown call-outs</li>
+          <li>Preventative maintenance</li>
+          <li>Equipment servicing</li>
+          <li>Equipment sales</li>
+          <li>Installation services</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="wrapper bg-light-grey" style="padding: 60px 0; background: #f5f5f5;">
+    <div class="row">
+      <div class="col" style="margin: 20px 0;">
+        <h2>Why Choose Us?</h2>
+        <p>With years of experience in the commercial catering industry, we provide:</p>
+        <ul style="margin: 20px 0;">
+          <li>Fast response times for emergency breakdowns</li>
+          <li>Expert technicians</li>
+          <li>Competitive pricing</li>
+          <li>Upfront quotes with no hidden fees</li>
+          <li>Online booking available 24/7</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="wrapper">
+    <div class="row" style="padding: 60px 0;">
+      <div class="col" style="margin: 20px 0; text-align: center;">
+        <h2>Get in Touch</h2>
+        <p>No more phone calls. No more emails.</p>
+        <p>Book your catering equipment breakdown callout at a time that suits you, anytime, anywhere, with upfront pricing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Book -->
+  <section id="book" class="wrapper" style="padding: 60px 0; background: #f5f5f5; margin: 0 -50%; width: 200%;">
+    <div class="row" style="text-align: center;">
+      <div class="col">
+        <h2>Ready to Book?</h2>
+        <p>Our online booking system is available 24/7</p>
+        <a href="https://www.caterkitservices.com/book" class="hero-btn" target="_blank">Book Your Service Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background: #191919; color: #fff; padding: 40px 0; text-align: center; margin-top: 60px;">
+    <div class="wrapper">
+      <p>&copy; 2026 CaterKit Services. All rights reserved.</p>
+      <p>Commercial catering equipment experts</p>
+    </div>
+  </footer>
   
   <!-- Google Analytics -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K6HJ88S" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
